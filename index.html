@@ -70,7 +70,7 @@
         .hover-text{
             display:flex;
             position:absolute;
-            top:40%;
+            top:25%;
             left:50%;
             transform:translate(-50%, -50%);
             font-family:"geo";
@@ -84,7 +84,7 @@
             text-shadow: 3px 3px 0px black;
             z-index: 15;
             opacity:0;
-            line-height:1.5;
+            line-height:1;
         }
         .ongoing-background{
             position:relative;
@@ -199,21 +199,6 @@
             width: 100%;  /* Ensures both images have same size */
             height: 100%;
         }
-        .tabs{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            width:150px;
-            height:30px;
-            font-family:"poppins";
-            font-size:20px;
-            color:white;
-            cursor:pointer;
-        }
-        .tabs:hover{
-            opacity:0.7;
-            transition:opacity 0.3s ease-in-out;
-        }
         .break{
             height:20px;
         }
@@ -257,11 +242,21 @@
             <div class="more-bar" id="more-button">
                 <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
                 <div class="more-tab-container" id="more-tab-cont">
-                    <div class="more-tab-boxes">HOME</h5></div>
-                    <div class="more-tab-boxes">NOVELS</h5></div>
-                    <div class="more-tab-boxes">MANGA</h5></div>
-                    <div class="more-tab-boxes">EARLY ACCESS</h5></div>
-                    <div class="more-tab-boxes">DONATE</h5></div>
+                    <a href="index.html">
+                        <div class="more-tab-boxes">HOME</h5></div>
+                    </a>
+                    <a href="novels.html">
+                        <div class="more-tab-boxes">NOVELS</h5></div>
+                    </a>
+                    <a href="manga-titles.html">
+                        <div class="more-tab-boxes">MANGA</h5></div>
+                    </a>
+                    <a href="early access.html">
+                        <div class="more-tab-boxes">EARLY ACCESS</h5></div>
+                    </a>
+                    <a href="donate.html">
+                        <div class="more-tab-boxes">DONATE</h5></div>
+                    </a>
                 </div>
         </div>
         </div>
@@ -273,7 +268,7 @@
             <div class="updated-buttons-wrapper">
                 <a href="table_of_contents.html">
                     <img class="updated-buttons" alt="Bran the Hero's Life Plan" src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true" width="150">
-                    <p class="hover-text">Bran the Hero's Life Plan</p>
+                    <h6 class="hover-text">Bran the Hero's Life Plan</h6>
                 </a>
             </div>
         </div>
