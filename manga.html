@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>manga</title>
+    <script src="https://flowerstranslations.github.io/scripts/theme_toggle.js" defer></script>
+    <link rel="stylesheet" href="https://flowerstranslations.github.io/scripts/stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .theme-size {
+            width: 50px;
+            height: 40px;
+        }
+
+        .theme-size:hover {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #theme-toggle {
+            position: relative;
+            width: 50px;
+            height: 40px;
+        }
+
+        #theme-toggle img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+        }
+
+        .page-title {
+            width: 100%;
+            height: 200px;
+            padding-top: 80px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-shadow: 5px 5px 5px #000000;
+        }
+
+        .manga-page-holder {
+            margin: auto;
+            max-width: 500px;
+            max-height: 714px;
+            width: 100%;
+            height: 1000px;
+            position: relative;
+        }
+
+        .manga-page-holder img {
+            max-width: 500px;
+            max-height: 714px;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .reading-viewer-background {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+            cursor: pointer;
+        }
+
+        .reading-viewer-image {
+            width: 90%;
+            height: auto;
+            max-width: 900px;
+            max-height: 1285px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: none;
+        }
+
+        .reading-viewer-image img {
+            max-width: 900px;
+            max-height: 1285px;
+            width: 85%;
+            height: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <div class="dashboard-container">
+        <div class="website-name">
+            <a href="https://www.google.com">
+                <h3>flowers translations</h3>
+            </a>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="https://www.google.com">Novels</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="https://www.google.com">Manga</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="https://www.google.com">Early Access</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="https://www.google.com">DONATE</a>
+            </div>
+        </div>
+        <div class="theme-size">
+            <div id="theme-toggle">
+                <img src="https://github.com/flowerstranslations/images/blob/main/sun.png?raw=true" id="sun"
+                    style="visibility:visible;" class="tabs-font">
+                <img src="https://github.com/flowerstranslations/images/blob/main/moon.png?raw=true" id="moon"
+                    style="visibility:hidden;" class="tabs-font">
+            </div>
+        </div>
+        <div class="more-bar" id="more-button">
+            <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
+            <div class="more-tab-container" id="more-tab-cont">
+                <div class="more-tab-boxes">HOME</h5>
+                </div>
+                <div class="more-tab-boxes">manga</h5>
+                </div>
+                <div class="more-tab-boxes">MANGA</h5>
+                </div>
+                <div class="more-tab-boxes">EARLY ACCESS</h5>
+                </div>
+                <div class="more-tab-boxes">DONATE</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-title">
+        <h1>flowers translations</h1>
+    </div>
+    <hr style="max-width:500px; width:50%;">
+
+    <!-- Manga Images -->
+    <div class="manga-page-holder"
+        onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/001.jpg?raw=true')">
+        <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/001.jpg?raw=true">
+    </div>
+    <div class="manga-page-holder"
+        onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/004.jpg?raw=true')">
+        <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/004.jpg?raw=true">
+    </div>
+    <div class="manga-page-holder"
+        onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/005.jpg?raw=true')">
+        <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/005.jpg?raw=true">
+    </div>
+    <div class="manga-page-holder"
+        onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/006.jpg?raw=true')">
+        <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/006.jpg?raw=true">
+    </div>
+    <div class="manga-page-holder"
+        onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/007.jpg?raw=true')">
+        <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/007.jpg?raw=true">
+    </div>
+    <div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/008.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/008.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/009.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/009.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/010.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/010.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/011.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/011.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/012.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/012.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/013.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/013.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/014.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/014.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/015.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/015.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/016.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/016.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/017.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/017.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/018.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/018.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/019.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/019.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/020.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/020.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/021.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/021.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/022.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/022.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/023.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/023.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/024.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/024.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/025.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/025.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/026.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/026.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/027.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/027.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/028.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/028.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/029.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/029.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/030.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/030.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/031.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/031.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/032.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/032.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/033.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/033.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/034.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/034.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/035.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/035.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/036.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/036.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/037.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/037.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/038.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/038.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/039.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/039.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/040.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/040.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/041.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/041.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/042.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/042.jpg?raw=true">
+</div>
+<div class="manga-page-holder"
+    onclick="showImageViewer('https://github.com/flowerstranslations/Oni-Hi/blob/main/043.jpg?raw=true')">
+    <img src="https://github.com/flowerstranslations/Oni-Hi/blob/main/043.jpg?raw=true">
+</div>
+
+
+
+    <div class="reading-viewer-image" id="imageZoomed">
+        <img id="zoomedImage" src="">
+    </div>
+
+
+    <div class="reading-viewer-background" id="read" onclick="hideImageViewer()"></div>
+
+    <div class="footer">
+        <a href="https://www.google.com">
+            <h1>flowers translations</h1>
+        </a>
+    </div>
+
+    <a class="kofi-link hover" href="https://ko-fi.com/flowerstranslations" alt="Support me on Ko-fi">
+        <img alt="Bran the Hero's Life Plan"
+            src="https://github.com/flowerstranslations/images/blob/main/support_me_on_kofi.png?raw=true" width="200"
+            title="Bran the Hero's Life Plan">
+    </a>
+
+    <script>
+        const read = document.getElementById('read');
+        const image = document.getElementById('imageZoomed');
+        const zoomedImage = document.getElementById('zoomedImage');
+
+        function showImageViewer(imageUrl) {
+            // Show the background and image viewer
+            read.style.display = 'flex';
+            image.style.display = 'flex';
+            zoomedImage.src = imageUrl; // Update the image source
+        }
+
+        function hideImageViewer() {
+            // Hide both the background and the image viewer
+            read.style.display = 'none';
+            image.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
