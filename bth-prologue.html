@@ -1,0 +1,410 @@
+<html>
+
+<head>
+    <title>PROLOGUE</title>
+    <link rel="stylesheet" href="https://flowerstranslations.github.io/scripts/stylesheet.css">
+    <script src="https://flowerstranslations.github.io/scripts/theme_toggle.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+
+        .title-container {
+            display: flex;
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            flex-wrap: wrap;
+            height: 200;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .title {
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wallpaper-container {
+            position: relative;
+            top: 0;
+            justify-content: center;
+            width: 100%;
+            height: 400;
+            overflow: hidden;
+        }
+
+        .wallpaper {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: blur(10px);
+            margin-top: -200px;
+        }
+
+        .page-title {
+            position: relative;
+            width: 60%;
+            height: auto;
+            top: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 600;
+            height: 400;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width:100%;
+            max-width: 600;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .image:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: relative;
+            font-weight: bolder;
+            font-family: "geo";
+            color: white;
+            cursor: none;
+            pointer-events: none;
+            text-shadow: 3px 3px 0px black;
+            opacity: 0;
+        }
+
+        .image-container:hover .image-text {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .page-paragraph {
+            position: relative;
+            top: -10px;
+            width: 80%;
+            height: 78.57%;
+            text-align: justify;
+        }
+
+        .prev-next {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .prev-next a {
+            font-family: 'geo';
+            font-size: 30px;
+            color: #f49a00;
+        }
+
+        .prev-next-link:hover {
+            opacity: 0.7;
+            transform: opacity 0.3s ease-in-out;
+        }
+
+        .toc-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toc:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "geo";
+            color: black;
+        }
+
+
+        .theme-size {
+            width: 50px;
+            height: 40px;
+        }
+
+        .theme-size:hover {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #theme-toggle {
+            position: relative;
+            /* So child images position relative to this */
+            width: 50px;
+            /* Match image size */
+            height: 40px;
+        }
+
+        #theme-toggle img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centers both images */
+            width: 100%;
+            /* Ensures both images have same size */
+            height: 100%;
+        }
+    </style>
+    <div class="dashboard-container">
+        <div class="website-name">
+            <a href="index.html">
+                <h3>flowers translations</h3>
+            </a>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="novels.html">Novels</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="manga-titles.html">Manga</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="early access.html">Early Access</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="donate.html">DONATE</a>
+            </div>
+        </div>
+        <div class="theme-size">
+            <div id="theme-toggle">
+                <img src="https://github.com/flowerstranslations/images/blob/main/sun.png?raw=true" id="sun"
+                    style="visibility:visible;" class="tabs-font">
+                <img src="https://github.com/flowerstranslations/images/blob/main/moon.png?raw=true" id="moon"
+                    style="visibility:hidden;" class="tabs-font">
+            </div>
+        </div>
+        <div class="more-bar" id="more-button">
+            <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
+            <div class="more-tab-container" id="more-tab-cont">
+                <a href="index.html">
+                    <div class="more-tab-boxes">HOME</h5></div>
+                </a>
+                <a href="novels.html">
+                    <div class="more-tab-boxes">NOVELS</h5></div>
+                </a>
+                <a href="manga-titles.html">
+                    <div class="more-tab-boxes">MANGA</h5></div>
+                </a>
+                <a href="early access.html">
+                    <div class="more-tab-boxes">EARLY ACCESS</h5></div>
+                </a>
+                <a href="donate.html">
+                    <div class="more-tab-boxes">DONATE</h5></div>
+                </a>
+            </div>
+    </div>
+    </div>
+    <div class="wallpaper-container">
+        <div class="title-container">
+            <a href="index.html">
+                <h1>flowers translations</h1>
+            </a>
+        </div>
+        <img class="wallpaper" src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+    </div>
+    <div class="page-container">
+        <h3 class="page-title">Bran the Hero's Life Plan: For My Second Life I'd Like to Be an Odd Jobs Guy</h3>
+        <br>
+        <div class="image-container">
+            <a href="table_of_contents.html">
+                <img alt="Bran the Hero's" class="image"
+                    src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+            </a>
+            <h5 class="image-text" style="color:white; font-size: 40px; font-family:'geo';">TABLE OF CONTENTS</h5>
+        </div>
+        <div class="page-paragraph">
+            <h2 style="text-align:center; font-family:'aldo the apache', sans-serif">PROLOGUE</h2>
+            <p>It was hell itself. Inside the burned down buildings, in the blink of an eye, people burned into ash. The
+                end of the royal country Jenafu’s peace was signaled by a single entity… The Black Dragon.
+                <br>“Ahhhhhh!”<br>
+                “Ow… It hurts…”<br>
+                “Water! Someone get me water!”<br>
+                Running around frantically, the Black Dragon calmly watched up above as the people tried to make their
+                escape. The Black Dragon is one of the strongest monsters of the demon kings. To be exact, they were
+                despair itself. However, the soldiers of Jenafu stood their ground and fought against the Black Dragon
+                wholeheartedly.
+                <br>“Prepare the magic attack! Fireee!”<br>
+                There was a division of soldiers that produced protective magic according to the commander’s orders.
+                However, with just one attack, most of the soldiers had been annihilated. The commander survived the
+                initial attack, though he had been blown away by the vibrations of the impact and was now covered in
+                wounds. <br>“Thi… This can’t be…”<br> The citizens of Jenafu were struck with great despair by the death
+                of their proud divisional commander.
+                <br>“Motherrr! Motherrr!”<br>
+                Amongst the people running around was a girl who strayed from her mother, looking around. However, the
+                surrounding people had no time to care, as they put themselves first and were frantic to escape this
+                hell. The commander would normally lend a hand, no matter how big or small the ask, but they couldn’t
+                even move. That’s when…
+                <br>“N… no way…”<br>
+                Once again, a jet-black flame was dwelling in the mouth of the Black Dragon. Furthermore, even if this
+                flame wasn’t comparable to the previous one, the magic division had been destroyed, meaning this flame
+                would completely blow the royal capital away. Almost as if out of desperation, the surviving magicians
+                and adventurers that lived in the capital aimed their arrows and spells at the Black Dragon and fired.
+                Though, the Black Dragon could care less. Finally, the light of despair shot from the mouth of the Black
+                Dragon.
+                <br>“...Absolute Demon God Impact Barrier”<br>
+                A clear refreshing voice resounded. In that moment, a flickering rainbow barrier appeared in between the
+                Black Dragon’s spout out flame and the capital. The barrier expanded and covered the whole capital as if
+                it was protecting everything.
+                <br>“...Heaven’s Blessing Miracle Rain”<br>
+                Rain poured over the entire capital. To the point of suppressing the blazing flames and healing the
+                wounds of the citizens.
+                <br>“This is…”<br>
+                The commander, who was surprised to see his wounds being healed, looked around his surroundings. Then,
+                the crying girl who lost her mother looked up into the sky and noticed something,
+                <br>“Ah!”<br>
+                “!”<br>
+                Her scream caught the commander’s attention, so he too looked up into the sky. A man in a jet-black robe
+                wearing a mask was floating up there, facing the Black Dragon. It was from afar, but he didn’t seem to
+                be very tall. Looking from below, his height seemed to be like that of a woman’s. Somebody with the
+                stature of a child is facing off with the Black Dragon. It was a bizarre scene. Most didn’t understand
+                what was going on. However, the commander knew exactly who the floating man was.
+                <br>“It… It’s the Black Emperor…”<br>
+                “Huh?”<br>
+                “The Black Emperor is here!”<br>
+                The Black Emperor is one of the 8 only rank 0 Adventures in the world. Each rank 0 adventurer has power
+                equivalent to war weapons, and can be considered human weapons! In reality, the Black Emperor protected
+                the city from the attack of the Black Dragon who was the cause of the destruction, and on top of that
+                they poured the healing rain down onto the city. As if everyone heard the voice of the commander, they
+                all simultaneously looked up into the sky and had a sparkle in their eyes. Then, as if answering their
+                expectations, the Black Emperor faced the Black Dragon and threw out his hand.
+                <br>“Divine Destruction Spear”<br>
+                An ominous black spear appeared from his outstretched hand. Every attribute began to mix and compress as
+                much as possible within the spear that appeared. That mass of magic was morphed into a spear and blasted
+                off. It was a significantly fast attack. The Black Dragon, who had displayed a calm attitude, had no
+                time to react and was pierced by the spear of destruction.
+                <br>“Grrraaaawwwrrrr!”<br>
+                The Black Dragon, who’s never had a rival, nor have they felt pain before, shrieked. Though, this was
+                not the whole extent of the attack.
+                <br>“As expected, one attack isn’t enough to finish you. If that’s the case, then I won’t stop till I
+                kill you.”<br>
+                The Black Emperor floated up multiple spears around themselves. This ‘Divine Destruction Spear’ spell
+                wasn’t originally a spell that was intended to be fired off many times. Let alone that, it’s not even
+                possible for a normal magician to cast the spell. It demands a lot of mana and a high magic skill level
+                to cast it. The Black Emperor cast the spell countless times and aimed the spears at the Black Dragon.
+                He swung down his raised arm. Simultaneously, the floating spears of destruction fired off towards the
+                Black Dragon.
+                <br>“Grrraaawwwrrr!”<br>
+                However, as if to say they won’t fall for the same attack twice, the Black Dragon rose up into the sky
+                and fired off flames so hot they incinerated the spears.
+                <br>“Absolute Demon God Impact Barrier”<br>
+                However, the Black Emperor had spread protective magic, covering the capital and themselves of course,
+                and successfully defended against the Black Dragon’s attack. Then, as the Black Emperor protected
+                against the flames, he once again cast ‘Divine Destruction Spear’.
+                <br>“You won’t get away next time.”<br>
+                This new ‘Divine Destruction Spear’ was different from the ones just now, it started violently rotating.
+                As the ‘Divine Destruction Spear’ rotated, the speed gradually increased, and it was fired off towards
+                the flames of the Black Dragon. The “Divine Destruction Spear” slashed through the flames and flew into
+                the mouth of the Black Dragon, piercing it with its violent momentum.
+                <br>“Grr…aaaa…”<br> The Black Dragon was pierced in the skull and faintly shrieked.
+                Their wings stopped flapping and finally, their body hit the ground. Everyone’s voice rose with joy as
+                they looked at the now completely silent black dragon.
+                <br>“I… it… it’s over!!!”
+                <br>“The Black Dragon has been defeated!”<br>
+                The Black Emperor looked down from the sky, towards the people hugging each other who rejoiced in
+                surviving. Then the Black Emperor soon left without making a sound.
+                <br>“Huh!? The Black Emperor left!?”<br>
+                “We didn’t even get to express our gratitude…!”<br>
+                The Black Emperor had already left before anyone could even notice. All except for one person… the
+                little girl had been staring at him the entire time.
+                <br>“The Black Emperor…”<br>
+                Then, they too dreamed of becoming just like them one day.
+
+                <br><br>* * *<br><br>
+
+                The world heard of the slaying of the Black Dragon; this news became a glimmer of hope for humanity.
+                This is because of the history of fear and bitter memories the people had for the Black Dragon. The one
+                who was responsible for the slaying of the Black Dragon, the Black Emperor returned back to the
+                adventurer guild’s headquarters. Everyone stopped moving the moment the Black Emperor stepped into the
+                building. Their eyes turned to the Black Emperor. However, the Black Emperor paid them no mind and in
+                that same uninterested state headed towards the front desk.
+                <br>“I completed my quest,” he said indifferently.
+                <br>“WHOOAAA!”<br>
+                “HUH! CONGRATULATIONS!”<br>
+                Shouts came pouring onto the Black Emperor. Their shouts seemed like they were about to split the
+                building in half.
+                <br>“That’s truly amazing!”<br>
+                “The Black Dragon hunting quest was already thought to be impossible to complete!”<br>
+                “Special rank adventurers sure are on a different level…”<br>
+                “Fool! The Black Emperor is the one who’s on a whole other level!”<br>
+                While everyone was up in cheers, the one being paraded was extremely quiet. It seemed like he was
+                thinking of something completely different.
+                <br>“Uh, um, Black Emperor… Is something troubling you?”<br>
+                “Hm? Ah, it’s nothing.”<br>
+                “I… is that so? Rather, to think that you would complete that hopeless Black Dragon hunting quest,
+                you’re truly amazing!”<br>
+                “Thank you. Well, I did train up to this point with the goal of slaying them, so it only makes
+                sense.”<br>
+                That’s right, it was the Black Emperor's goal— No rather, it was his assignment. He was ordered to slay
+                the Black Dragon by his master.
+                <br>“You’ve been training with the sole purpose of defeating the Black Dragon?”<br>
+                “Correct. I was told that I could quit being a rank 0 adventurer if I defeated the Black Dragon.“<br>
+                ”Ahh, I see! You’re going to quit being a rank 0 adventurer... Wait what?”<br>“Huh?”<br>
+                For a moment, everyone thought they must’ve misheard the Black Emperor's words and stopped moving.
+                However, the Black Emperor paid no mind and continued to nod.
+                <br>“That’s correct. I’m dropping out of the adventurers’ guild"
+                <br>"...”<br>
+                And just like that, the headquarters went back into a silent state. Until—
+                <br>“HUHHHHHHHHHHHHHHHH!?”<br>
+                The headquarters went back into an uproar.<br>The headquarters went back into an uproar.<br><br><br><br>
+            <div class="prev-next">
+                <div class="prev-next-link">
+                    <a href="table_of_contents.html">← PREVIOUS</a>
+                </div>
+                <div class="prev-next-link">
+                    <a href="early access.html">NEXT →</a>
+                </div>
+            </div>
+            <div class="toc-container">
+                <div class="toc">
+                    <a href="table_of_contents.html">
+                        <h4>Table of Contents</h4>
+                    </a>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+    <div class="footer"><a href="index.html"><h1>flowers translations</h1></a></div>
+    <a class="kofi-link hover" href="https://ko-fi.com/flowerstranslations" alt="Support me on Ko-fi">
+        <img alt="Bran the Hero's Life Plan"
+            src="https://github.com/flowerstranslations/images/blob/main/support_me_on_kofi.png?raw=true" width="200"
+            title="Bran the Hero's Life Plan">
+    </a>
+</body>
+
+</html>

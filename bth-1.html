@@ -1,0 +1,397 @@
+<html>
+
+<head>
+    <title>Chapter 1</title>
+    <link rel="stylesheet" href="https://flowerstranslations.github.io/scripts/stylesheet.css">
+    <script src="https://flowerstranslations.github.io/scripts/theme_toggle.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .title-container {
+            display: flex;
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            flex-wrap: wrap;
+            height: 200;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .title {
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wallpaper-container {
+            position: relative;
+            top: 0;
+            justify-content: center;
+            width: 100%;
+            height: 400;
+            overflow: hidden;
+        }
+
+        .wallpaper {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: blur(10px);
+            margin-top: -200px;
+        }
+
+        .page-title {
+            position: relative;
+            width: 60%;
+            height: auto;
+            top: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 600;
+            height: 400;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width:100%;
+            max-width: 600;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .image:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: relative;
+            font-weight: bolder;
+            font-family: "geo";
+            color: white;
+            cursor: none;
+            pointer-events: none;
+            text-shadow: 3px 3px 0px black;
+            opacity: 0;
+        }
+
+        .image-container:hover .image-text {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .page-paragraph {
+            position: relative;
+            top: -10px;
+            width: 80%;
+            height: 78.57%;
+            text-align: justify;
+        }
+
+        .prev-next {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .prev-next a {
+            font-family: 'geo';
+            font-size: 30px;
+            color: #f49a00;
+        }
+
+        .prev-next-link:hover {
+            opacity: 0.7;
+            transform: opacity 0.3s ease-in-out;
+        }
+
+        .toc-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toc:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "geo";
+            color: black;
+        }
+
+
+        .theme-size {
+            width: 50px;
+            height: 40px;
+        }
+
+        .theme-size:hover {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #theme-toggle {
+            position: relative;
+            /* So child images position relative to this */
+            width: 50px;
+            /* Match image size */
+            height: 40px;
+        }
+
+        #theme-toggle img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centers both images */
+            width: 100%;
+            /* Ensures both images have same size */
+            height: 100%;
+        }
+        .image-box{
+            width:70%;
+            justify-content: center;
+            align-items: center;
+            margin:auto;
+        }
+        .image-box img{
+            width:100%;
+            height:auto;
+        }
+    </style>
+    <div class="dashboard-container">
+        <div class="website-name">
+            <a href="index.html">
+                <h3>flowers translations</h3>
+            </a>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="novels.html">Novels</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="manga-titles.html">Manga</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="early access.html">Early Access</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="donate.html">DONATE</a>
+            </div>
+        </div>
+        <div class="theme-size">
+            <div id="theme-toggle">
+                <img src="https://github.com/flowerstranslations/images/blob/main/sun.png?raw=true" id="sun"
+                    style="visibility:visible;" class="tabs-font">
+                <img src="https://github.com/flowerstranslations/images/blob/main/moon.png?raw=true" id="moon"
+                    style="visibility:hidden;" class="tabs-font">
+            </div>
+        </div>
+        <div class="more-bar" id="more-button">
+            <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
+            <div class="more-tab-container" id="more-tab-cont">
+                <a href="index.html">
+                    <div class="more-tab-boxes">HOME</h5></div>
+                </a>
+                <a href="novels.html">
+                    <div class="more-tab-boxes">NOVELS</h5></div>
+                </a>
+                <a href="manga-titles.html">
+                    <div class="more-tab-boxes">MANGA</h5></div>
+                </a>
+                <a href="early access.html">
+                    <div class="more-tab-boxes">EARLY ACCESS</h5></div>
+                </a>
+                <a href="donate.html">
+                    <div class="more-tab-boxes">DONATE</h5></div>
+                </a>
+            </div>
+    </div>
+    </div>
+    <div class="wallpaper-container">
+        <div class="title-container">
+            <a href="index.html">
+                <h1>flowers translations</h1>
+            </a>
+        </div>
+        <img class="wallpaper" src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+    </div>
+    <div class="page-container">
+        <h3 class="page-title">Bran the Hero's Life Plan: For My Second Life I'd Like to Be an Odd Jobs Guy</h3>
+        <br>
+        <div class="image-container">
+            <a href="table_of_contents.html">
+                <img alt="Bran the Hero's" class="image"
+                    src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+            </a>
+            <h5 class="image-text" style="color:white; font-size: 40px; font-family:'geo';">TABLE OF CONTENTS</h5>
+        </div>
+        <div class="page-paragraph">
+            <h3 style="text-align:center; font-family:'aldo the apache', sans-serif">CHAPTER 1: BRAN THE RANK 10 ADVENTURER</h3>
+            <p>Around the time of the rank 0 adventurer the Black Emperor's retirement.
+                The news hit the world with an even stronger impact than the slaying of the Black Dragon did and sent the world into a frenzy. Afterall, when it comes to rank 0 adventurers, they are truly the last line of defense for mankind and are an important existence needed to oppose the monsters who are ruled by the 5 demon kings. 
+                The Black Emperor in particular, is very mysterious and was brought to the guild by the former rank 0 adventurer “Sword Saint” Kurul. Their background, age and name are all of course unknown. There were rumors that they were a child based on their height and that the former rank 0 adventurer gave them a special recommendation when they registered as an adventurer. The Black Emperor demonstrated their real powers and in a little over a year became a rank 0 adventurer. Having such unprecedented powers, he was left with many quests from powerful figures from various countries. He had become an irreplaceable figure.  
+                Now such an important adventurer has retired. Of course, the adventurer guild tried to prevent his retirement. They requested the person who originally brought the Black Emperor to the guild, “Sword Saint” Kurul to detain him but they refused to do so. Afterwards, every country tried their best to somehow persuade him from retiring. However, their opponent was a rank 0 adventurer. The Black Emperor was easily able to lose the eyes of the spies monitoring him and slipped into hiding. Three years have passed since the disappearance of the Black Emperor. 
+                
+                *  *  * 
+                
+                “Haa… I can finally see it.” 
+                I… Bran looked out at the city from afar and gave a smile. The reason being that I had started a new life since coming down here and have been living in the woods for 3 years now. I can’t help but look forward to what’s up ahead.  
+                “Well, it took me forever to be able to use this guy, didn’t it?” I said looking down at the sword down beside me.  
+                The me before used magic to fight but now another method of fighting was needed to live this new life. I decided to retrain and hone the sword that I originally had been taught by my master 3 years ago. I have finally become an acceptable skilled swordsman, so it was time for me to leave the heart of the woods that I had been training in and start my second life.  
+                “Well, I guess the most important thing is to not use weapons in my second life.” 
+                That’s right, I don’t need weapons in my desired new life. However, carrying a weapon is essential in this world where the monsters of the demon kings run rampant. I’m going to register as an adventurer now. The adventurer guild probably doesn’t allow people who don’t have a method of fighting after all, so I had to train my sword a bit.  
+                “At any rate, let’s head to the city.” 
+                I turned to the direction of the city again and started walking.  
+                “Wow.”  
+                I safely arrived in the city and was lightly in awe of the scene in front of me. There was just the perfect amount of people out in the streets of the city. I was especially surprised because of the fact that the city is Kureto of the Rireito Kingdom. The Rireito Kingdom itself is a small country and actually has a low population when compared to the bigger countries. 
+                Furthermore, it’s probably a characteristic of the country but the atmosphere in the air was warm, and I had already started to feel it myself. Despite being a small country, as far as I could see they have everything needed for survival, making it very convenient.  
+                “It’s really calm. I’ve had enough of crowded places…” 
+                I once used the biggest country in the continent, the Ledion Kingdom, as my base. Furthermore, I lived in the capital city of all places. The adventurer headquarters was based there so the foot traffic was horrendous. I can’t stand places with a lot of people. This Rireito Kingdom had fewer crowds but it was adjacent from the 3rd Demon King’s dwelling, the Demon Forest. In particular, Kureto is the closest city to the forest. I haven’t heard much of monsters leaking out of the ‘Demon Forest’ but compared to other areas, there are more monster sightings and there are a lot of soldiers and adventurers that live here. 
+                This is exactly why I chose this country.  Of course, adventurers who slay monsters are valuable but due to the fact that there are a lot of monsters, it’s more difficult to harvest herbs in contrast to other countries. Therefore, even amongst adventurers there are an abundance of odd job quests.  
+                “...”  
+                While I reflect about this city I face the adventurers guild. The building is on the main street of the city. There’s a lot of people.  Although, compared to the headquarters it’s negligible. While staring at the guild I overheard a fellow adventurer’s conversation. 
+                “I wonder when we’ll be able to break through the 1st Demon King’s territory.” 
+                “There’s no way we can. That place is on another level of danger. Unless the Special rank adventurers form a party then we won’t be able to conquer it.” 
+                “I guess you’re right after all… rather, speaking of Special rank adventurers, what happened to that Black Emperor?” 
+                “Who knows? It seems like the guild and the big wigs of every country tried their best to find him but they couldn’t find him at all.” 
+                “As expected, he’s a different beast… Wait, isn’t he a former Special rank? At any rate, he’s insanely strong. But, I wonder why he suddenly retired? According to the rumors he’s still young right?” 
+                “No clue. Nobody knows but there must’ve been a reason why.” 
+                “...”  
+                I was fed up from the coincidental conversation I overheard from the fellow adventurers. The topic still comes up despite retiring from the rank 0 class over 3 years ago... They’d never guess that I’d be standing here trying to register as an adventurer would they. I stepped into the guild. There was even a small tavern inside, with blacked out drunk adventurers sitting in there. I continued inside towards the front desk, due to the fact that I had already decided to do so. There‘s a decent line in front of the reception desk, I have to wait a short while.  
+                “Next—” 
+                “Hello”  
+                “Welcome to the Kret branch. What matters do you have today?” 
+                “I’d like to register as an adventurer...” 
+                “Understood! Can I have your name?” 
+                “Bran.”  
+                “I see, Bran.”  
+                The receptionist started handling something in her hands. Then, a plate appeared out of the strange box attached to the front desk. The receptionist grabbed it and then handed it over to me.  
+                “Now then, can you charge up your magical powers in order to properly measure and record it?” 
+                “Okay” 
+                I followed the receptionist’s directions and charged up my magic into the plate handed to me.</p>
+                <p class="image-box" style="text-align: center;"><img src="https://github.com/flowerstranslations/images/blob/main/bth-1-1.jpg?raw=true"></p><p>If I was to get careless out of habit, I might end up displaying my real magical powers which I don't intend on displaying, so I held back. The reason being that my magic powers are terrifyingly strong. If I were to use my normal magic powers then it’d probably destroy this crystal plate. And… that might lead to someone finding out my real magic capabilities. That’s why, in order to not be found out, I should refrain from releasing my magic as much as possible. 
+                    While being careful of the degree of magic power I use, the crystal plate absorbs a portion of my magic. Once it stopped absorbing my magic, my name and the words “rank 10” emerged onto the crystal plate. I’ve seen this phenomenon twice but I don’t remember the first time very well. At that time, my master made me register without even knowing what was going on. That’s why, it was strange to see it intently first hand. The receptionist smiled when she looked at my plate.  
+                    “Thank you. This will be your adventurer license. An adventurer license is needed when accepting quests as well as completing them. So please don’t lose it and keep it safe. You can be issued a replacement in the case of losing it, however there is a replacement fee.”  
+                    “That is all. Your registry is completed. I’ll now explain how the guild works now.” 
+                    The receptionist then explained the fundamentals of the guild. Which was about the types of quests, how to accept a quest, adventurer ranks, promotion requirements and so on but, it was a bunch of useless information for me. Since I’ve already decided what kind of quests I was going to accept and I had no intentions of promoting ranks. The receptionist then took a deep breath after her long explanation.  
+                    “Phew… The introduction is now finished.” 
+                    “Thank you.” 
+                    “Oh, It’s a little late into the conversation but my name is Rina. I hope your future endeavors go well.”  
+                    The receptionist— Rina, had a vague smile. I then left the front desk. Unfortunately, I don’t intend on doing much. What I want to do is… a goal of my new adventurer life.  
+                    
+                    *  *  * 
+                    
+                    After leaving the reception desk, instead of immediately accepting a quest I left the guild and headed to a different location. I was on my way to a real estate agency. Usually most adventurers live in inns though it’s a different story if they’ve lived here before their adventurer days. Adventurers mainly slay monsters so they spend their money on equipment maintenance, so there’s hardly any homeowner adventurers. Sometimes a party of rank 4 or above would pool money together and rent a house as a base. It’s very rare to see someone have a house to themselves. However, luckily due to my 3 years of service, I’ve saved an abundance of funds.  
+                    “I had nothing but quests from royal members and rich merchants so I’ve saved a huge amount of money.”  
+                    The me at that time… before slaying the Black Dragon… vaguely lived just for that purpose. I didn’t have anything in particular that I wanted to do. I only became an adventurer and rose the ranks because my master told me to do so. I then completed quest after quest as they came fluttering in. I couldn’t imagine that this would be the catalyst for discovering what I wanted to do. 
+                    Anyways, all I did in the past was save up money and I didn’t have opportunities to use it nor did I have anything that I wanted to buy, but now I’m going to buy a house on this land. Renting a house or even sleeping at an inn would suffice if you were planning on just sleeping there but I’ve heard that having a place you can come back to whenever is nice. I don’t exactly know that feeling yet but that’s what my master told me. 
+                    I’ve come this far so I’m not going to rent a house but instead I’m going to own one. I like the vibe and environment of this city, so I hope I can find a nice house here. I finally reached the real estate agency at the end of my thought. An employee quickly came to greet me after entering the building. 
+                    “Welcome.” 
+                    “I’m looking to buy a house…” 
+                    “Is that so! Is there anything in particular that you’re looking for?” 
+                    Hmm, anything in particular huh... I haven’t thought that far ahead yet. I’ve only been thinking about a place to return to and to spend money on. Although, since I’m buying a house I might as well get one that is pretty big. Some people prefer small places to relax in, but for some reason I’m leaning towards a big place. At any rate, I should think of what else I want... Oh right, I’d like a place with a bath. My master also taught me that baths felt better than showers. They once said that baths clean your heart. Inns typically don’t have baths in their rooms. I only saw it in the house that I lived in with my master.  
+                    “Are there any houses that have a lot of space and a bath?” 
+                    “There is one. Though, it’s on the outskirts of the city... And due to the fact that it is placed near the plains, I can’t guarantee that you wouldn’t experience any attacks by the neighboring monsters.” 
+                    I see, indeed, if it’s near the plains then there’s a cause for worry for monster attacks even if you have a defensive wall. Though, that doesn’t really apply to me.  
+                    “I’m okay with that. Is it possible to check the house out in person?” 
+                    “Of course!” 
+                    The employee immediately led me to the outskirts, and I visited the house. The house isn’t as big as an inn though it was quite bigger than a house in the city. It even has a courtyard. The house was also more or less furnished, my desired huge bath was also there. 
+                    “As you can see, the furniture is extremely beautiful and the house is quite filled with them. Though I regret to say that the house is quite a ways away from downtown Kret...” 
+                    There was indeed a decent amount of inconveniences though I didn’t care much for them. As you know, I lived in the mountains training my sword for 3 years. In my eyes, these weren’t inconveniences.  
+                    “It’s a nice house. Can I buy it?”  
+                    “Ye… Yes of course!”  
+                    The realtor immediately bowed his head the moment I expressed my intention to buy the house. According to what I’ve heard, the price was cheaper than market value but due to the house being large the price was still fairly expensive, so there weren’t many buyers interested in it. The house was priced at 10 million beruks. That’s a thousand gold coins. It certainly is a large sum of money, however that’s the minimum a quest offered for a Special rank adventurer. 
+                    …The Black Dragon slaying quest was 10 billion beruks. Anyway, after finalizing the contract I returned back to the house I just bought and sat down on my bed. The bed was also provided but the doormat and bed sheets were newly bought. The bed was extremely comfy and seemed easy to sleep in.  
+                    “...I’m finally a rank 10 adventurer.” 
+                    I stared at my adventurer license that I received earlier today. 
+                    …I was forced to become an adventurer by my master in the past. The me at the time felt indifferent and emotionless towards everything, I didn’t even know why I was alive. My master made me take the path of becoming an adventurer in order to give me a purpose. As expected from my Special rank master, they were able to get an exception to let me start from rank 7. 
+                    Speaking of rank 7, it’s the starting point for the intermediate level of adventurers. To go into more depth, rank 10 to 8 are the lower ranks, rank 7 to 5 are the intermediate ranks, everything above that is considered the high ranks. rank 0 is considered to be a Special rank. 
+                    Naturally, the other adventurers didn’t find it very amusing, being that I'm a beginner that doesn’t know anything. Yet I immediately registered as a rank 7 adventurer out of nowhere.  The me in the past didn’t sense their irritation towards the situation but my master made me accept many quests in order to shut them up. In which I uninterestedly completed. Then before I knew it, I had become a rank 0 adventurer just like my master. The haters diminished after becoming a Special rank adventurer but as usual, all I did everyday was complete quests. One day, I was suddenly given a task by my master. It was the slaying of the 1st Demon King’s underling the Black Dragon. My master said that I can live how I like if I was able to slay the Black Dragon. However, I didn’t see a reason to accept that assignment at the time. 
+                    I thought I was living just fine completing quests without dissatisfaction and uninterestedly. Apparently, this robotic behavior benefited the elites very greatly. Since I would mindlessly complete their meaningless quests... in other words their odd jobs. I actually felt an emotion for the first time while completing one of these odd jobs, in which I witnessed a certain spectacle. 
+                    While doing this odd job quest I coincidentally happened to see my first rank 10 adventurers. Despite doing a meaningless quest the kids were tackling it full on and were intently gathering herbs. Though at the time I couldn't comprehend why they were trying so hard. 
+                    The purpose of an adventurer is to slay the demon kings’ monsters and pioneering undeveloped territories. They weren’t fighting monsters but instead they were just gathering herbs and cleaning the city. I didn’t understand them at all. Maybe that’s why they drew my attention and led to me observing them while I also did my quest. That’s when I quickly came to understand the value of their existence. 
+                    The herbs that they gather become medicine, that medicine will then help not just adventurers but the lives of the city folk as well. Now, cleaning the city prevents plagues and the appearance of monsters, since monsters are attracted by filth. There’s a reason for everything they do. I should have understood that after giving it a little thought. However I was so absorbed into the idea of killing life I wasn’t even able to realize something as simple as that till that moment. Compared to them, what have I been doing up until now? 
+                    Certainly the number one purpose of an adventurer is to slay monsters. I was contributing to this purpose by slaying the attractive monsters from the noble quests. However, what was the meaning behind it all? Most of the monsters from the quests of nobles inhabited locations far from humanity. If it wasn’t for the quest, there’d be no reason to go out of my way to hunt them. The monsters I hunted ended up becoming trophies, sources of entertainment, or for greed motives. In reality it didn’t help anyone but the nobles. 
+                    Between me and the rank 10 kids, who’s really the odd job guy? This is the moment I started to desire to accept... meaningful quests. Though, I had already become a rank 0 adventurer. Up until now, the nobles’ quests didn’t stop and due to the guild not allowing rank 0 adventurers accepting low rank quests, I couldn’t accept them. I couldn’t quit earlier because my master also assigned me tasks as a rank 0 adventurer. I had to retire in order to do what I want…. So I decided to complete my masters assignments.  
+                    “Now… that I think about it, my master probably expected this to happen.” 
+                    My master probably did it to soften my heart. At that time I would just kill everything with no care in the world. What… was I like before? I don’t know why I had such a violent heart. By the time I became conscious of my existence, I was already traveling with my master. I don’t have any memories before then. What kind of person was I before...  
+                    “...It doesn’t matter. In the present, I’m Bran the rank 10 adventurer.”  
+                    My master probably hid my identity all for this moment. I truly can’t thank them enough. 
+                    “...I wonder how my master’s doing…” 
+                    I thought of my master’s whereabouts and took a short nap. 
+                    
+                    *  *  * 
+                    
+                    ——Around the time Bran purchased his house. At the Ledion Kingdom’s adventurer guild headquarters, a certain person was being summoned.  
+                    “...Huh. You bastards are persistent aren’t ya.” says the platinumed hair blue eyed woman.   
+                    Possessing the characteristic of elves with long ears and being so beautiful, she seems to be the personification of ‘beauty’. The elf girl has a fed up expression on her face and elegantly sits down in the guild chairman's office. This woman is Bran’s master and former rank 0 adventurer, ‘Sword Saint’ Kurul.  
+                    “Hmph... You must know why I’m being so persistent don’t you?” The middle aged man sitting across from her opened his mouth. 
+                    The middle aged man is muscularly brawny and wearing a suit, exuding an aura that intimidates anyone that looks at him. His name is Baruga, the chairman of the adventurer guild and former rank 1 adventurer. The reason he summoned the retired adventurer Kurul was regarding none other than the Black Emperor’s... Bran’s whereabouts. The guild who has been searching for Bran, has been monitoring Kurul even more closely since Bran’s disappearance. They don’t want to let her escape their eyes, as she may be the only person who knows of his whereabouts.  
+                    “I’m going to have you spill where he is.” 
+                    “Enough already. 3 years have already passed.” 
+                    “Exactly, it’s already been 3 years. It’ll be troublesome if he’s not here.” 
+                    “I don’t know and I don’t care.” 
+                    “You’re his master right? There are many quests piled up with his name on it.” 
+                    “Why are you only insistent on him? There are other rank 0 adventurers, aren't there?” 
+                    “...Those guys won’t move.”
+                    Kurul laughed through her nose at Barugan’s suspicious statement.</p>
+                    <p class="image-box" style="text-align: center;"><img src="https://github.com/flowerstranslations/images/blob/main/bth-1-2.jpg?raw=true"></p>
+                <br><br><br><br>
+            <div class="prev-next">
+                <div class="prev-next-link">
+                    <a href="bth-prologue.html">← PREVIOUS</a>
+                </div>
+                <div class="prev-next-link">
+                    <a href="early access.html">NEXT →</a>
+                </div>
+            </div>
+            <div class="toc-container">
+                <div class="toc">
+                    <a href="table_of_contents.html">
+                        <h4>Table of Contents</h4>
+                    </a>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+    <div class="footer"><a href="index.html"><h1>flowers translations</h1></a></div>
+    <a class="kofi-link hover" href="https://ko-fi.com/flowerstranslations" alt="Support me on Ko-fi">
+        <img alt="Bran the Hero's Life Plan"
+            src="https://github.com/flowerstranslations/images/blob/main/support_me_on_kofi.png?raw=true" width="200"
+            title="Bran the Hero's Life Plan">
+    </a>
+</body>
+
+</html>
