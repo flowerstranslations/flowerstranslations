@@ -1,0 +1,1379 @@
+<html>
+
+<head>
+    <title>Chapter 3</title>
+    <link rel="stylesheet" href="https://flowerstranslations.github.io/scripts/stylesheet.css">
+    <script src="https://flowerstranslations.github.io/scripts/theme_toggle.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .title-container {
+            display: flex;
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            flex-wrap: wrap;
+            height: 200;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .title {
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wallpaper-container {
+            position: relative;
+            top: 0;
+            justify-content: center;
+            width: 100%;
+            height: 400;
+            overflow: hidden;
+        }
+
+        .wallpaper {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: blur(10px);
+            margin-top: -200px;
+        }
+
+        .page-title {
+            position: relative;
+            width: 60%;
+            height: auto;
+            top: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 600;
+            height: 400;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            max-width: 600;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .image:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: relative;
+            font-weight: bolder;
+            font-family: "geo";
+            color: white;
+            cursor: none;
+            pointer-events: none;
+            text-shadow: 3px 3px 0px black;
+            opacity: 0;
+        }
+
+        .image-container:hover .image-text {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .page-paragraph {
+            position: relative;
+            top: -10px;
+            width: 80%;
+            height: 78.57%;
+            text-align: justify;
+        }
+
+        .prev-next {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .prev-next a {
+            font-family: 'geo';
+            font-size: 30px;
+            color: #f49a00;
+        }
+
+        .prev-next-link:hover {
+            opacity: 0.7;
+            transform: opacity 0.3s ease-in-out;
+        }
+
+        .toc-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toc:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "geo";
+            color: black;
+        }
+
+
+        .theme-size {
+            width: 50px;
+            height: 40px;
+        }
+
+        .theme-size:hover {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #theme-toggle {
+            position: relative;
+            /* So child images position relative to this */
+            width: 50px;
+            /* Match image size */
+            height: 40px;
+        }
+
+        #theme-toggle img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centers both images */
+            width: 100%;
+            /* Ensures both images have same size */
+            height: 100%;
+        }
+
+        .image-box {
+            width: 70%;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <div class="dashboard-container">
+        <div class="website-name">
+            <a href="index.html">
+                <h3>flowers translations</h3>
+            </a>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="novels-titles.html">Novels</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="manga-titles.html">Manga</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="early-access.html">Early Access</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="donate.html">DONATE</a>
+            </div>
+        </div>
+        <div class="theme-size">
+            <div id="theme-toggle">
+                <img src="https://github.com/flowerstranslations/images/blob/main/sun.png?raw=true" id="sun"
+                    style="visibility:visible;" class="tabs-font">
+                <img src="https://github.com/flowerstranslations/images/blob/main/moon.png?raw=true" id="moon"
+                    style="visibility:hidden;" class="tabs-font">
+            </div>
+        </div>
+        <div class="more-bar" id="more-button">
+            <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
+            <div class="more-tab-container" id="more-tab-cont">
+                <a href="index.html">
+                    <div class="more-tab-boxes">HOME</h5>
+                    </div>
+                </a>
+                <a href="novels-titles.html">
+                    <div class="more-tab-boxes">NOVELS</h5>
+                    </div>
+                </a>
+                <a href="manga-titles.html">
+                    <div class="more-tab-boxes">MANGA</h5>
+                    </div>
+                </a>
+                <a href="early-access.html">
+                    <div class="more-tab-boxes">EARLY ACCESS</h5>
+                    </div>
+                </a>
+                <a href="donate.html">
+                    <div class="more-tab-boxes">DONATE</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="wallpaper-container">
+        <div class="title-container">
+            <a href="index.html">
+                <h1>flowers translations</h1>
+            </a>
+        </div>
+        <img class="wallpaper" src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+    </div>
+    <div class="page-container">
+        <h3 class="page-title">Bran the Hero's Life Plan: For My Second Life I'd Like to Be an Odd Jobs Guy</h3>
+        <br>
+        <div class="image-container">
+            <a href="bth-toc.html">
+                <img alt="Bran the Hero's" class="image"
+                    src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+            </a>
+            <h5 class="image-text" style="color:white; font-size: 40px; font-family:'geo';">TABLE OF CONTENTS</h5>
+        </div>
+        <div class="page-paragraph">
+            <h3 style="text-align:center; font-family:'aldo the apache', sans-serif">CHAPTER 3: ODD JOB QUESTS</h3>
+            <p>Days after teaching Aria about herbs.
+                She has smoothly completed quests and is now rank 9.
+                Aria, unlike other adventurers who were only taking monster hunting quests, was completing both monster
+                hunting quests and odd job quests. And now in the present, Aria offered to do a quest together and so
+                we’re cooperating on the same quest.
+                <br>“Hm… There isn’t any over here…”<br>
+                “I also can’t find any over here”<br>
+                The quest we accepted is a collecting quest for orem fruit that grows from a tree in the Demon Forest. I
+                thought it was a monster hunting quest at first when Aria brought up the topic of the quest. Since
+                forming a party is safer when taking on monster hunting quests. And more than anything, it’s rare to
+                form parties for collecting quests, as it’s not really necessary. However, since Aria was the one who
+                asked, I happily agreed. This is my first time stepping foot into the Demon Forest, since I’ve been
+                focusing on herbs that grow in the plains. The quest item, orem fruit, apparently grows in the shallow
+                parts of the Demon Forest. Though, even if it’s in the shallow parts it doesn’t change the fact that
+                it’s still dangerous. You still have to be cautious of monster attacks around these parts. I sensed a
+                monster mid-thought. I then turned my line of sight in that direction, on top of the tree next to Aria
+                was a 2 meter long snake monster called… forest snake. It was obvious that it was waiting for the right
+                time to jump out towards Aria.
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                <br>“Aria, look out!”<br>
+                “Huh? AH?”<br>
+                After I warned Aria who wasn’t aware of the forest snake, she immediately got into her battle stance.
+                With a slight delay, the forest snake then sprung out towards her.
+                <br>“Water Ball!”<br>
+                “Shaaa!?”<br>
+                After chanting the spell a blob of water emerged in front of Aria and crashed into the forest snake. The
+                forest snake fell to the ground from the impact and its movement dulled due to the damage taken.
+                <br>“Yaaa!”<br>
+                Then, without giving it an opening to escape, Aria pulled out her hanging sword and severed the forest
+                snake’s neck. Aria defeated the forest snake, gave out a sigh and smiled my way.
+                <br>“Th… thanks Bran!”<br>
+                “Not at all. At any rate, you’re pretty skilled with the sword aren’t you.”<br>
+                A forest snake is a rank 8 monster and because it doesn’t even possess poison, it isn’t very strong. But
+                its scales are hard, you need strength that can cut it in order to slice it. Aria’s swordsmanship is
+                amazing considering that she’s a rank 9 adventurer but still demonstrated cutting through its scales and
+                dropping its head.
+                <br>“Y… you think so? I’ve done some special training in order to become an adventurer…”<br>
+                “Oh… You’ve been aiming to become an adventurer for a while now?”<br>
+                By nature, as long as someone can fight they can become an adventurer. In other words, this means that
+                even thugs can easily register and become an adventurer. Despite it being life-threatening, becoming an
+                adventurer itself is extremely easy. And so for that reason, it's rare for someone to train beforehand
+                and aim to become an adventurer from the start. Since you can become one even without any training.
+                Rather, most people who’ve been training their swordsmanship since childhood, generally aim to become a
+                knight. Aria, then gave a bashful smile.
+                <br>“Yeah. Actually… I’ve been training for 3 years… because the Black Dragon attacked the city that I
+                lived in.”<br>
+                “Huh?”<br>
+                My eyes widened, surprised by Aria’s words.
+                By Black Dragon… She means that Black Dragon right?
+                Aria continued not noticing my surprise.
+                <br>“The soldiers of my country fought desperately but the Black Dragon was strong… The city collapsed,
+                and chaos fell upon it. At that time, I had gotten separated from my mother, and the only thing I could
+                do was cry. Then, just when I thought all was lost… the great Black Emperor appeared!”<br>
+                “……”<br>
+                “The Black Emperor gallantly appeared! And let alone blocking the Black Dragon’s attack, he even covered
+                the entire city in a remedy of healing rain! And he defeated the Black Dragon with a tremendous magic
+                spell… Thanks to the Black Emperor I’m still alive today. I long to be just like him one day, and become
+                an adventurer that can protect everyone… Is something wrong?”<br>
+                “I-It’s nothing.”<br>
+            </p>
+            <p class="image-box" style="text-align: center;"><img
+                    src="https://github.com/flowerstranslations/images/blob/main/bth-3-1.jpg?raw=true"></p>
+            <p>
+                I broke into a cold sweat listening to Aria’s story.
+                So that’s how she viewed me…
+                I only had my master’s assignment of defeating the Black Dragon on my mind at the time. I only protected
+                the city because I would get an earful from the higher ups of the guild and the nobles of said country.
+                To think that somebody would long to become an adventurer from my actions…
+                <br>“At any rate, I longed to become just like the Black Emperor and became an adventurer.”<br>
+                “In other words, you’re aiming to become a rank 0 adventurer?”<br>
+                “That’s right… I hope I can reach rank 0 like the Black Emperor. Obtaining something like rank 0 is a
+                dream within a dream after all. I’m taking things one step at a time, putting my all to complete every
+                quest in front of me! Which, even if I can’t become a rank 0 adventurer I’m aiming to become an
+                adventurer that can protect others!”<br>
+                Aria visibly had a sparkle in her eye during her monologue.
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                It’s true that it’s a harsh road to reach rank 0. I don’t know how much talent Aria has but at the very
+                least she’s been training for 3 years and her swordsmanship is elite. If she does what my master did and
+                goes under the wing of the right person she can become an excellent adventurer. Aria noticed something
+                while I was busy thinking about it.
+                <br>“Th… there it is! Isn’t that the orem fruit?”<br>
+                In the direction that Aria pointed at, was a tree with an orange colored fruit hanging from it. Once I
+                approached and picked the fruit, I had no doubt that it was an orem fruit.
+                <br>“Yup. It’s definitely an orem fruit.”<br>
+                “Alright! Do I have to be cautious of how I pick it?”<br>
+                “No, you don’t have to be so wary when you’re picking this fruit, but you just need to be wary of
+                picking it like you would for any other fruit, making sure you don’t damage it.”<br>
+                “I see! For now I’ll go on ahead and pick it.”<br>
+                Said Aria excitedly.
+                <br>“!”<br>
+                I followed in her steps by picking one myself, but then I suddenly felt a strong presence from within
+                the depths of the forest. What’s… with this presence…
+                A thick wave of magic can be sensed, one that even the Black Dragon that I once defeated, could easily
+                get past. If I remember correctly, the 3rd Demon King is sleeping in this forest but is that true? It’s
+                already been hundreds of years since the vanishing of each demon king. Which is why, it’s not certain
+                whether any of the demon kings were truly alive or not. Though, this must mean that most of today's
+                monsters are offsprings of the monsters that the demon kings created. There’s also a chance that they
+                are secretly producing monsters while in hiding. As I turned my awareness towards the depths of the
+                forest, Aria who finished her pickings, tilted her head.
+                <br>“What’s wrong Bran?”<br>
+                “No… it’s nothing.”<br>
+                Certainly, I sensed a thick aura of magic but I didn’t sense an intent to kill. Although, things can
+                change if we overstay our welcome.
+                <br>“For now shall we head back?”<br>
+                “Okay!”<br>
+                I kept my guard up in the forest and somehow returned to the guild with no problems.
+
+                * * *
+
+                A few days after my party quest with Aria.
+                I once again accepted an odd job quest.
+                <br>“So this is the place?”<br>
+                In front of me was a big orchid that bears lots of vividly bright oranges. All of which look incredibly
+                tasty, with a citrus, refreshing aroma in the air. That’s right, for today’s quest I’m working as a
+                helping hand for this orchid. I stepped into the orchid and immediately saw a man picking.
+                <br>“Excuse me! I came from the adventurer guild quest!”<br>
+                “Ohh, you accepted the quest!”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                A middle aged likable looking man stopped working and headed towards me. The man had a sunny smile on
+                his face and stook out his hand.
+                <br>“I’m Mike. I manage this orchid.”<br>
+                I shook his hand back and introduced myself.
+                <br>“I’m Bran. I came regarding the picking helping hand quest…”<br>
+                “Yeah, I see. As you can see, the orchid is quite big, so it takes us forever to pick it all by
+                ourselves.”<br>
+                When I looked at it closely, I noticed that there were other workers however, as he said when
+                considering the size of the orchid they’re short on hands.
+                <br>“Which is why I posted a quest in the guild but as expected no one’s come.”<br>
+                As expected, this quest isn’t popular after all. Though I on the other hand showed up because I thought
+                I should expand my field of experience.
+                <br>“Well, whatever. I’d like to have you help us immediately but, do you have any experience in
+                harvesting before?”<br>
+                “No, it’s my first time picking oranges. However, I have picked orem fruit before from a quest.”<br>
+                “I see, I see! You should be fine then. They’re both fundamentally the same after all. You’ll be fine as
+                long as you know how to not damage fruit when picking them, that’s all that matters.”<br>
+                “I understand. Oh, what’s the difference between one that should be harvested and one that
+                shouldn’t?”<br>
+                “I think you’ll be fine picking but… Oh, take a look.”<br>
+                Mike said, showing a stronger yellow than usual orange.
+                <br>“An orange with this kind of color isn’t ready to be picked, so it’d be very helpful if you can
+                avoid picking these ones. But don’t worry about it if you mess up. It’s not that big of a deal!”<br>
+                “I see. I understand.”<br>
+                “Well then, use this knife and basket okay.”<br>
+                I grabbed the tools from Mike, and started working right away. I tried to pick the fruit like I would
+                with an orem fruit but I noticed that the stem was harder than an orem’s.
+                <br>“I see, this is what orangia’s are like.”<br>
+                Orangias are sparkling orange and tasty looking.
+                <br>“I’ve seen them countless times lined up at the store but it’s a different thing to harvest them
+                yourself.”<br>
+                I refocused on picking them. I spent many hours focused and picking away. I briefly looked up and my
+                eyes widened, looking out into the massive orchid that had yet to be harvested.
+                <br>“Uhh… How many days is this going to take…?”<br>
+                Goods loading quests sometimes leaked over to the next day but that’s the extent of it. 2 days is the
+                max. But, the size of this orchid isn’t something that can be done in just one or two days.
+                <br>“It’s going to take an incredible amount of time at this rate…”<br>
+                The more I think about it the more I come to understand why it’s not a popular quest. The more time you
+                spend working the less time you have to accept other quests, making a rank up a far way to go. However I
+                don’t care about ranking up nor do I mind working long hours but if it’s going to finish the job faster
+                and keep it from crossing over to another day…
+                <br>“I guess I’ll give it a try…”<br>
+                I repositioned the knife and quickly swung my arm. I precisely aimed for the stem of the orangias and
+                cut them all off. The orangias then rapidly dropped.
+                I caught them before they could hit the ground and put them inside the basket.
+                <br>“Alright, this is many times faster.”<br>
+                I was picking them one at a time up until now, but at that rate no matter how much time I have it
+                wouldn’t be enough. I was also properly picking them and came to get a grasp on the positioning and
+                hardness of the stem so I’m now able to do this new method. Mike came to check up on how I was doing,
+                which I was now using my new fast method.
+                <br>“Bran! So how’s it goin— HUH!?”<br>
+                “Oh Mike! I’m using a new method to pick at the moment!”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                For now, I thought it’d be faster to show someone. I once again swung my knife and in a blink of an eye
+                cut the stems of the orangia hanging on the trees. Cautious of the fruits getting damaged, I collected
+                all of the falling orangias.
+                <br>“This is the method. What do you think?”<br>
+                “Wh… what do I think…”<br>
+                Mike’s eyes widened, checking every single orangia I harvested.
+                <br>“Th… that’s amazing… Precisely cutting just the stem, and not damaging a single one… Ho… how did you
+                harvest them so fast…?”<br>
+                “I think we’ll finish early with this method.”<br>
+                In reality, we’ll definitely finish early using this method. However, as expected Mike and the others
+                can use this method so it's going to be on my hands to finish early. Ignoring Mike’s surprised question
+                I continued to collect orangias one after another. But, as expected we couldn’t finish in 1 day. It
+                ended up taking 2 days to finish.
+                <br>“You’re amazing! You’re amazing Bran! It’s thanks to you that we were able to finish so fast!”<br>
+                “I’m glad to be of help.”<br>
+                “You’re more than just helpful! How about it Bran! Would you like working for the orchid!?”<br>
+                My eyes got big in surprise, I didn’t expect Mike to do exactly what Berum did and offer me a job.
+                <br>“Uhh… I’m really grateful for the offer but I still intend on working as an adventurer…”<br>
+                “No way… Th– then will you accept my quest again!?”<br>
+                “Of course!”<br>
+                Mike was left very happy and I successfully completed the quest.
+
+                * * *
+
+                A few days after the harvesting quest.
+                I’ve been completing odd job quests as usual but I decided to take a break because I noticed I’ve been
+                working day in and day out like I used to do in the past. So I went out on a walk, also with the purpose
+                of looking around the city.
+                <br>“This is pretty nice.”<br>
+                I whispered aimlessly walking around the city. I’ve gone around various countries and have hopped from
+                land to land completing quests. However, it had a strong business vibe to it, I didn’t even go looking
+                around the city once.
+                …It was such a waste of an opportunity, now that I think about it. Each country has their own culture,
+                despite having the opportunity to experience them all I was pressed with quests and didn’t even notice.
+                <br>“Whatever. I’ll experience every little thing from here on out.”<br>
+                The name Black Emperor still remains around the world. However, that name should go obsolete eventually
+                and be forgotten. When that happens, I won’t have to worry about my magic and I’ll be able to tour the
+                world more grandly. Of course in order to travel the whole world the demon kings’ territory must need to
+                be liberated first…
+                Anyways, until then I’ll just do odd jobs. As I was thinking about that, someone suddenly called out to
+                me.
+                <br>“Oh, Bran!”<br>
+                “Tom!”<br>
+                Tom the yakitori vendor was the one who called out to me.
+                <br>“What’s up? You have a quest today as well?”<br>
+                “No, today’s my day off.”<br>
+                Tom then widened his eyes and smiled.
+                <br>“I see, I see. It is true that you’re always working. Rest is also very important.”<br>
+                “So it did look like I worked 24/7 after all.”<br>
+                “Yeah, you go to the plains everyday and bring back the herbs you collected and you run around here and
+                there helping people.”<br>
+                “I see. If that’s what you say…”<br>
+                I wasn’t really running around but from the point of view of the people around it seems like I’m working
+                quite a bit.
+                <br>“Though it’s not very tiring for me.”<br>
+                “As expected, that’s very adventurer-like of you. You’re quite strong and durable. Though, it is very
+                important to rest when you can. That’s why I’m glad to hear that you’re resting.”<br>
+                “I’ll be careful.”<br>
+                There’s no pressure to keep working like in the past. As Tom says, let's periodically rest. As I was
+                thinking that Tom keenly continued.
+                <br>“Regardless of that… you’ve helped out the townspeople quite a bit since you’ve arrived right?”<br>
+                “Huh?”<br>
+                I was surprised to hear that.
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                <br>“Why are you acting surprised? You complete the quest that we put out there don’t you? There were
+                times in the past where herbs would often be out of stock but thanks to you periodically going out and
+                collecting them for us we’ve stocked up on potions, it’s very helpful. Thank you.”<br>
+                Indeed, I knew that herbs are very important for the townspeople. However, I didn’t expect odd jobs to
+                be this helpful and receive thanks directly from the townspeople. Tom then let out a fed up sigh.
+                <br>“Ha… It would be nice if the other adventurers also accepted our quests though.”<br>
+                Due to the money and rank up potential monster hunting quests have, adventurers only accept monster
+                hunting related quests. Guilds, researchers and nobles post a lot of quests and their rewards are
+                significantly higher than the townspeople’s. As a result, the townspeople’s quests… in other words, odd
+                jobs are avoided. However, I don’t think you can change the way people think about it. Everyone has
+                their own lives to worry about and everyone has their own way of viewing things. While thinking about it
+                Tom held out a cooked yakitori.
+                <br>“Here. Grab one.”<br>
+                “Huh, are you sure?”<br>
+                “Ya! You’ve helped me out a lot as well after all. Rather, you’ve helped us all a great lot. This is a
+                token of my appreciation. Please keep accepting our quests.”<br>
+                “I understand. Thank you for the yakitori.”<br>
+                I said, accepted the yakitori and left Tom’s side. I then took a bite out of Tom’s yakitori, after
+                taking a bite out of its juicy tender meat, miso soup and Tom’s specialty sauce slushed around my mouth,
+                entangling my taste buds.
+                <br>“It’s delicious.”<br>
+                I felt completely satisfied from the taste and reflected on my past.
+                Now… that I think about it, I didn’t even get to enjoy meals during my Black Emperors. All I cared about
+                was having sufficient nutrients and never thought about the taste of the food. The more I think about
+                it, the stronger I feel that I was living like a dead man. During that time I did as I was told and
+                completed nothing but quests. I didn’t have a mind of my own. When I think of that, it’s a good thing…
+                that I’ve sprouted my own thoughts and opinions. I’m also very grateful for my master who looked after
+                me. They made me become an adventurer in order to awaken my own train of thought. Thanks to them I’m who
+                I am today. As I’m walking and thinking, one after the other, others besides Tom call out to me.
+                <br>“Oh! Bran! Here, take one!”<br>
+                “Thanks for the other day! Please accept my quest again sometime!”<br>
+                “Is today your day off? Then here! Make sure you eat it and take it easy!”<br>
+                Most of the people were handing me things like vegetables and general goods. It’s not a good thing to
+                get things for free so I tried to decline them but they were persistent. This is different from before,
+                I’ve formed a bond with the townspeople.As I’m walking feeling thankful, a store enters my line of
+                sight.
+                <br>“That’s…”<br>
+                It’s a flower shop with various flowers lined up out front. It seems they don’t just sell flowers but
+                they also sell different kinds of vegetables.
+                <br>“Oh right, my house has a yard. Starting a garden is a pretty good idea.”<br>
+                Especially because I just recently helped harvest at Mike’s orchid. It seems fun to grow them in your
+                own home. The employees greeted me as I got close to the store.
+                <br>“Welcome! Is there anything in particular you’re looking for?”<br>
+                “I’m… actually thinking of starting a home garden…”<br>
+                “I see! Then, how about something like this tomaruto?”<br>
+                They said, showing a round red vegetable. A tomaruto has a lot of nutritional value and is uniquely
+                juicy.
+                <br>“Tomaruto’s are a good starter for beginners.”<br>
+                “I see, then I’ll take it.”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                They then showed me several other types of vegetables and flowers. I bought them all since I was already
+                here. I then returned home, and planted all of the plants that I bought.
+                <br>“The vegetables and flowers I bought supposedly don’t need much maintenance.”<br>
+                Apparently they don’t even need to be watered every day. They’re completely for beginners. I felt
+                content after watering my garden for the first time and took a bath. Like a day off would be for, I
+                healed my fatigued body.
+
+                * * *
+
+                The day after my day off.
+                I once again accepted an orem fruit collecting quest in the Demon Forest where I can’t forget the aura
+                that I sensed in there. I headed over to Rina’s desk holding the quest.
+                <br>“…Okay, the processing is complete. As usual you do nothing but gather quests…”<br>
+                “It’s okay isn’t it?”<br>
+                “I guess it is… Oh yeah, Aria also accepted the same quest just now.”<br>
+                “Is that so?”<br>
+                “Perhaps, you’ll bump into her. In any case, the Demon Forest is extremely dangerous compared to the
+                plains, so please be careful.”<br>
+                “Thanks.”<br>
+                I said goodbye to Rina and headed on over to the Demon Forest.
+
+                * * *
+
+                <br>“Oh Bran…”<br>
+                I… Rina, let out a sigh looking at Bran’s back. I met Bran by chance when he registered as an adventurer
+                a month ago. I’m sorry to say this but my first impression of him was that he was an undriven person.
+                Having unkempt black hair and blue eyes with no life within them. His facial features are refined but
+                it’s a waste because of how he comes off. It’s arguable that he’s the weirdest adventurer amongst
+                everyone that’s registered here in Kret. He actively accepts odd job quests that nobody wants to do and
+                enjoys them. Normally, adventurers rank up in order to have access to more quests. Above all, the higher
+                you go in the ranks the more special treatment you get from countries and the guild. Due to upper rank
+                adventurers like rank 1 adventurers being so strong, every country does whatever they can in order to
+                win them over.
+                When it comes to the rank above rank 0 adventurers, just one rank 0 has the power to take over an entire
+                country. For example, in a past war, the country with the support of a rank 0 adventurer absolutely
+                demolished the opposite side. The guild now has a fundamental policy prohibiting adventurers from going
+                to war. That’s how powerful upper rank adventurers are. This strength has led to countries going out of
+                their way to invite these upper rank adventurers and buttering them up. Because of how lucrative it is,
+                many adventurers aim for these ranks.
+                Which… is why the news of the rank 0 adventurer Black Emperor’s retirement shocked the world. His age
+                was never disclosed but he should still be young, since he hadn’t been a rank 0 adventurer for too long
+                before throwing the rank away. Well us normal people wouldn’t understand why but he must’ve been going
+                through something.
+                At any rate, while everyone is trying their best to, even if it’s a little, move up the ranks as fast as
+                possible, Bran is complacent in the rank he’s at. No matter how many times I propose the idea, he
+                stubbornly refuses. He even hated ranking up to rank 8.
+                Rina was standing in her usual reception desk, and had a bitter smile on her face when someone called
+                out to her.
+                <br>“What’s with that smile? Is something wrong?”<br>
+                “Ah, Lena!”<br>
+                “Maybe, it’s about him again?”<br>
+                Lena knew that I was the one in charge of Bran. Though naturally, there isn’t a rule of receptionist
+                being assigned to certain adventurers. Rather, I have heard of upper rank adventurers possibly being
+                given a dedicated receptionist but that isn’t a thing for rank 8 adventurers like Bran. Yet, one way or
+                another, I’m always the one working the desk when he decides to complete a quest.
+                <br>“Yeah.”<br>
+                “He accepted another odd job?”<br>
+                “Yeah he did. The quest this time is the Demon Forest’s orem fruit gathering quest, so the difficulty is
+                somewhat more difficult than the typical gathering quest…”<br>
+                “So in the end he accepted a gathering quest rather than a monster hunting quest.”<br>
+                That’s right, all he accepts are odd job quests like gathering quests after all. Of course, there are
+                gathering quests among the higher ranks but those are in extremely dangerous areas so they’re not
+                categorized as odd jobs. If he would at least accept a more difficult gathering quest then people around
+                would stop making fun of him…
+                <br>“Well glancing at him, it seems like he has no desire to do so.”<br>
+                “D… don’t say that!!”<br>
+                “But everyone thinks so as well don’t they? This may not be related but despite being an adventurer his
+                hair is always a mess and his spirits aren’t high… An adventurer should have ambition. In a sense this
+                would also cross him out of potential candidates.”<br>
+                “Candidates?”<br>
+                “Yeah, boyfriend candidates.”<br>
+                “Ohh…”<br>
+                Lena’s words reminded me of the topic that often comes up amongst the reception desk women. The topic
+                being, what kind of adventurer would you like to marry. The reason why this topic comes up often is
+                because there is a high number of adventurers and receptionists who end up developing feelings for each
+                other, falling in love and getting married. That alone shows how often the two occupations come across
+                each other. And for women receptionists, if they’re able to catch a young promising adventurer then,
+                even without being a noble, they can live out the rest of their life leisurely. Hence why a lot of
+                female receptionists actually became receptionists in the first place.
+                “Speaking of candidates, Allen is cute and he just reached rank 6 recently. It looks like he has a
+                bright future. Then the other candidate has to be rank 3 Kevin after all! He’s super cute and he’s so
+                powerful, he reached rank 3 all by himself. And top of all that he’s a noble. There couldn’t be anyone
+                more perfect.”<br>
+                “Ha, ha…”<br>
+                “But I heard Allen is transferring to a different area. As for Kevin, it’s incredibly difficult to even
+                get a chance to see him… It’s truly a cold world out there, isn’t it?”<br>
+                Indeed, Allen registered as an adventurer here in Kret and excelled. It’s said that at this rate it
+                won't be a big deal for him to reach the upper ranks. I’ve encountered him many times at the reception
+                desk but while many adventurers are somewhat rude, he was a very gentle-mannered young guy. However, it
+                was refreshing to see because I don’t view adventurers with the same eye that Lena does.
+                <br>“Now that I think about it, I’ve never talked about this kind of thing with you before. Do you have
+                anyone you’re aiming for?”<br>
+                “HUH!?”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                “Sure enough you’re aiming for a high rank adventurer right? However, everyone aims for a high rank
+                adventurer so it’s best to have an eye out for a promising low rank, middle rank adventurer. But it’s
+                pretty difficult to find someone in small Kret.”<br>
+                Lena overwhelmed me and kept going on and on.
+                H, hm… I haven’t given it that much thought before but, she wouldn’t let me off the hook if I answered
+                with that would she.
+                <br>“So, what do you think”<br>
+                “Uh, yeah… If I had to choose, I think a low rank adventurer would be a good idea.”<br>
+                “Oh, is that so? Then you mean you want to catch a promising guy—”<br>
+                “N, no! That’s not what I mean… If I’m going to marry someone I don’t want them doing something so
+                dangerous…”<br>
+                “Huh…? But in that case then they wouldn’t earn much money right?”<br>
+                I had a forced smile on my face as a reaction from Lena’s words.
+                <br>“It’s true that we wouldn’t be able to live an affluent life but I’d like to continue working and
+                more importantly I think it’s important for couples to live together.”<br>
+                As Lena says, adventurers can earn a lot of money. However, it’s a job that matches the possible income
+                with danger.
+                …My father was an adventurer but lost his life. That’s why I don’t care if they don’t make a lot of
+                money, I want to live the rest of my life together.
+                <br>“Hmm… That’s unusual, Rina.”<br>
+                “Y… you think so?”<br>
+                “Yeah it’s unusual. But if that’s the case, wouldn’t it be difficult to live? The job of an adventurer
+                is fundamentally dangerous… Actually, if it’s that one rumored guy then there shouldn’t be a reason to
+                worry.”<br>
+                “Are you talking about Bran?”<br>
+                “Ya. After listening to you, he’s probably the closest thing to your ideal guy. But, you should give up
+                on a guy who doesn’t show any promise like that. Even before I knew of him as the odd job guy, he didn’t
+                look very reliable.”<br>
+                “Ahahaha…”<br>
+                I could only give a forced smile after hearing Lena speak so bluntly.
+                After speaking about various things with Lena…
+                As I was processing the quests of other adventurers as usual, the guild doors suddenly smacked open.
+                <br>“T-There’s trouble!”<br>
+                The adventurer shouted with a frantic look on their face and a faint pant.
+                All of the adventurers were dumbfounded by the sudden situation, but one of them spoke out.
+                <br>“Hey, hey what’s going on?”<br>
+                “Th… there’s tyrant golems at the Demon Forest!”<br>
+                “Wha—!?”<br>
+                Everyone’s eyes widened after hearing the name of the monster yelled out by the adventurer.
+                <br>“Don’t tell me you went deep into the Demon Forest?”<br>
+                “No! It appeared on the outskirts!”<br>
+                “What!?”<br>
+                It was an emergency.
+                Up until now, unless you went in yourself, an atrocious monster like the tyrant golem had never been
+                seen outside of the depths of the Demon Forest. Seeing a monster above rank 4 outside of the depths was
+                unheard of. However this time, the rank 3 tyrant golem had shown up apparently. Above anything else, the
+                worst thing about it is that a tyrant golem has shown up on the outskirts. It would be unthinkable if
+                that monster really did appear. There may be an overflow of these kinds of absurd monsters.
+                <br>“S—Somebody call the soldiers!!”<br>
+                “It’s already being done! But to defeat multiple tyrant golems is…”<br>
+                “W—Wait wait, I thought there’s only one?”<br>
+                “There’s 3 of ‘em…!”<br>
+                Everyone fell into a silence after those words resounded. Just one tyrant golem is extremely dangerous,
+                but there were 3. Just 3 tyrant golems have the power to destroy a small country. It can be said that
+                the Rireito Kingdom is a small country.
+                “Do we have any rank 3 and above adventurers!?”<br>
+                “There’s none obviously. Not in this small country…”<br>
+                Indeed, the Demon Forest is rich in various resources but it’s not very beneficial for high rank
+                adventurers. Hence, most materials collected are plant based and there’s nothing but plant or insect
+                type monsters. Meaning there’s no monsters that can strengthen gear.
+                Above all, there aren’t any dungeons in this city… no in this country. Dungeons were created by the gods
+                long long ago during the war against the demon kings. It was created with the purpose of strengthening
+                humans, operating as a place of training. The monsters in these dungeons are the same monsters that the
+                demon kings rule over. Once slain, they drop various loot and respawn. However, the loot they drop is
+                different from their non-dungeon counterparts.
+                Even then, because it’s a place made for training by the gods after all, there’s a chance for an
+                adventurer’s physical and magical powers to improve from slaying monsters in the dungeon. This way the
+                gods could strengthen humans to fight against the underlings of the demon kings and make them useful for
+                the war.
+                By the way, it’s said that the gods were born from nothing and created the humans on this planet. And as
+                if going against the gods, the stars created the enemy of humanity, the demon kings. These demon kings
+                then went on to create more monsters. In other words, the stars are the creators of the demon kings. The
+                long lasting battle between the two, ended in both’s destruction.
+                However, the humans and demon kings that the gods and stars created still remained. Furthermore, as
+                inheritance from the war between the two, the dungeon was left behind for humans. Even till this day,
+                they’re used as training areas for humans. Therefore, high rank adventurers dive into them in order to
+                become stronger, obtain items and complete quests. That’s why a country that doesn’t have a dungeon like
+                this one, hardly has any high rank adventures.
+                …More than anything, it can be said that the reason why there aren’t many high rank adventurers is
+                because the Demon Forest is relatively safe considering its danger level. That being said, the guild
+                can’t just ignore it.
+                <br>“THIS IS AN EMERGENCY QUEST!”<br>
+                Org the Kret branch head, appeared after hearing the ruckus. Org is a respected former rank 4
+                adventurer, who’s stepped back from the front lines and moved up the ranks to a branch head. That Org
+                used his trained massive body and raised his voice so the entire guild could hear his voice.
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                <br>“rank 8 and below adventurers do not get near the forest! rank 7 and above, patrol the city and
+                guard it! This is an emergency quest. Don’t forget the terms of agreement, participation is basically
+                mandatory!”<br>
+                An emergency quest is a quest that is forcibly activated when a country of the branch is under danger.
+                The activation of the quest forces middle rank adventurers… In other words all rank 7 and above
+                adventurers accept the quest. It’s an adventurer’s obligation. On the other hand, adventurers don’t need
+                to fight in wars.
+                Org gave out orders one after the other and each person started to hectically move. That’s when I
+                suddenly remembered something.
+                <br>“O-Oh yeah! Bran and Aria…!”<br>
+                “What’s wrong Rina?”<br>
+                Org noticed my blue face and came asking.
+                <br>“O-Org! Two adventurers are completing a quest at the Demon Forest right now!”<br>
+                “What? What rank are they?”<br>
+                “They’re rank 8 and rank 9!”<br>
+                Org hit his forehead with the palm of his hand.
+                <br>“What’s a rank 8… doing in the Demon Forest? Demon Forest monster hunting quests don’t start till
+                rank 7.”<br>
+                “They accepted the orem fruit gathering quest, which can be accepted starting from rank 9.”<br>
+                “Shit. So it’s that quest… Most rank 9’s and rank 8’s do monster hunting quests in the plains in order
+                to promote quickly, don’t they? So why are they doing such a quest…”<br>
+                “Those… two often do odd job quests.”<br>
+                “Oh, the odd job guy!"<br>
+                It seemed Org knew of Bran and said his nickname that everyone mocks him with out loud.
+                <br>“Geez, what bad timing… It's true that completing odd job quests is very helpful but doing nothing
+                but odd job quests is a bit much. Does he not know how to fight?”<br>
+                “Perhaps…”<br>
+                Aria occasionally did monster hunting quests but Bran stubbornly never tried them. He has a sword as a
+                weapon but it always looks brand new and unused whenever I see it. More than anything, there’s no way an
+                adventurer doesn’t come across monsters on gathering quests. Usually a party would bring back the
+                resources after slaying a monster to sell them, assuming it was unrelated to their quest. However,
+                Bran’s never brought back any monster resources before. Also, it should be difficult to live off the
+                income of a rank 8 adventurer…
+                …But I’ve heard through a rumor that he owns a house. Maybe he’s surprisingly rich. Anyhow, there’s
+                absolutely no way Bran is good at fighting. Org had a stern look on his face.
+                <br>“…It’s too bad but we don’t have the resources to worry about them.”<br>
+                “W-What are you saying!”<br>
+                “You should know this. We can’t afford to split people up and execute a search and rescue for those two.
+                Not in this emergency situation. The best we can do is look for them while we investigate the Demon
+                Forest.”<br>
+                “Th… thats…”<br>
+                “As adventurers,. they’re going to have to protect themselves. The safety of the citizens comes first.
+                Give up on trying to save them.”<br>
+                Org went back to giving orders to the adventurers. Logically speaking, he made complete sense but I
+                couldn’t easily accept it.
+                <br>“Bran… Aria…”<br>
+                —All I could do is pray for their safety.
+
+                * * *
+
+                <br>“That’s so weird… Even though there was some here the other day…”<br>
+                I… Aria… came to the Demon Forest to complete an orem fruit gathering quest. I’ve been proactively
+                completing quests in order to rank up to rank 8 but I’m not like the other adventurers who do nothing
+                but monster hunting quests. I make sure to accept what’s known as odd jobs as well. To simply put it, I
+                do them because I want to become an adventurer that can help all kinds of people. At a glance, people
+                think that the purpose of an adventurer is to serve the people and slay monsters but that’s not just it.
+                Adventurers can also find herbs that are hard to obtain to help the people that need them. Plus,
+                according to Bran who’s taught me lots about herbs, herbs like the orem fruit are used for medicine that
+                can cure specific illnesses. Though, because you need to step into the Demon Forest in order to pick
+                them and there are safer and more profitable quests out there, orem fruit quests aren’t very popular.
+                However, the other day I completed this quest with Bran and I was more than capable of defeating a
+                monster in the outskirts, all on my own. Plus I’ve learned more about orem fruits and where they grow.
+                Which is why I decided to take this quest again but on my own. Once I finish this quest I’ll get closer
+                to a rank up and become helpful to someone. It was supposed to be killing two birds with one stone…
+                <br>“Hm… Don’t tell me Bran beat me to the punch?”<br>
+                I came to the place where the fruit I’m well knowledgeable about now is, but there wasn’t a single one
+                hanging on the tree. Which is why I thought maybe the only person who’s more gung ho on odd job quests
+                Bran had got here before me and grabbed all of the orem fruits. But it didn’t make sense because the
+                quest didn’t ask for that many orems. Then, did this quest suddenly get popular and everyone grabbed
+                them already? I couldn’t think of a reasonable reason, no matter how hard I thought about it.
+                <br>“I guess there’s no helping it. I’ll just go around looking for other possible locations.”<br>
+                The closest orem tree in the outskirts was completely wiped clean so I decided to head over to another
+                gathering area I was aware of. But, in the end I couldn’t find any orem fruits no matter where I went.
+                <br>“I wonder if there actually is any.”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Maybe they only sprout during a certain time of the year but Bran never did mention that…
+                I looked around thinking about that and suddenly noticed something.
+                <br>“Huh? The grass is withering…?”<br>
+                I didn’t really notice at first but when I took a closer look at the whole forest, for some reason I
+                couldn’t sense the life of the plants. How should I put it, it seemed like their life was being sucked
+                out of them.
+                <br>“…It’s not just my imagination after all. I should probably end this quest…”<br>
+                I had a bad feeling about this and decided to end the quest and head back to the guild.
+                It was at that exact moment.
+                <br>“Kiiii!”<br>
+                “Huh!? A slash monkey!?”<br>
+                A rank 8 monster, the slash monkey suddenly jumped out and attacked me. In a panic I raised my sword and
+                slashed at the slash monkey but…
+                <br>“Kiiii!”<br>
+                “Hm!?”<br>
+                The slash monkey that I thought was attacking me actually jumped over my head and onto the trees behind
+                me. Soon after, other slash monkeys followed suit and were jumping through trees. Slash monkeys have
+                sharp nails and mercilessly attack humans on site… at least normally…
+                <br>“Kiikii!”<br>
+                “Kikya! Kikya!”<br>
+                Why are the slash monkeys running without even noticing me?
+                It seemed like they were running from something…
+                <br>“What the heck is go–”<br>
+                “Ooooooooooo!”<br>
+                “Hm!?”<br>
+                I suddenly felt a tremendous pressure overcome me. I suddenly found it hard to breathe, it was as if
+                this overwhelming power was crushing me.
+                <br>“Ha… Ha…!”<br>
+                Before I knew it I was kneeling and desperately looking around. Suddenly, something unexpectedly jumped
+                in front of me.
+                <br>“Wh… what…?”<br>
+                It was a huge monster with a humanoid build. It was made out of stone and stone and wrapped in plants. I
+                knew about the monster that fits the description, a golem. A golem is basically placed between rank 5
+                and rank 7 due to the composition of their bodies. Naturally, rank 5 monsters are out of my league. I’ve
+                never even seen a rank 7 monster before.
+                …No, I’ve seen the rank 0 monster the Black Dragon in the past but I’ve never faced them the way I am
+                now. Which is why, standing off with the rank 5 golem made my dream of becoming a splendid adventurer
+                like the Black Emperor, feel impossible. That’s how out of my league I felt. So this is the level of a
+                rank 5 monster. Maybe this golem isn’t the same as a normal one, maybe it’s stronger than normal. No
+                matter how hard I thought I couldn’t see a scenario where I would win.
+                <br>“Ha… Ha…!”<br>
+                I tried to control my semi-conscious pants but as the golem got closer the stronger his overwhelming
+                pressure got.
+                I-I have to run…!
+                Despite my mind trying to run away, my body was shaking and wouldn’t move.
+                <br>“Ooo!”<br>
+                “Heh!"<br>
+                The golem’s head moved.
+                It’s red inorganic eye locked on to me.
+                <br>“Oooooooooo!”<br>
+                “Ahhh!!”<br>
+                The golem raised its terrifying roar and a wave of its magic released from its body. The thick magic
+                accompanied the roar physically and turned into a shockwave that sent me flying. Unable to find my
+                footing, I was flung into a tree, nailed to it.
+                <br>“Ahh!”<br>
+                I bear the pain and somehow stand on my feet. I noticed that I slipped out of its magic pressure.
+                <br>“I… I have to run…!”<br>
+                I desperately ran away while covering my body. However, the golem didn’t let me go.
+                <br>“Ooooooooooo!”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                The golem then raised both hands and slammed them into the ground. The moment its hands hit the floor,
+                the ground started to shake in a wave-like motion. The ground moving like a ripple of water, had
+                significant cracks building up, while the surrounding trees and soil came crashing down on me. I tried
+                to escape, but this damaged body of mine couldn’t move well and got sent flying once again.
+                <br>“Ugh…”<br>
+                Soaring in the air like a wood chip, I couldn’t throw up my guard in time and violently smacked into the
+                ground floor.
+                <br>“Uh… ugh…”<br>
+                My body can’t move anymore.
+                <br>“N… n… no.”<br>
+                I don’t want to die. I don’t want to die.
+                Despite begging for dear life, my consciousness was fading.
+                Is this really where I die?
+                I guess… in the end, I wasn’t able to become an adventurer like the Black Emperor.
+                An adventurer that can save someone…
+                I naturally flooded with tears, and my vision became hazy. I could see the golem standing in front of me
+                with both hands raised, ready to finish me off.
+                That’s the last thing I saw before my consciousness faded.
+
+                * * *
+
+                <br>“Hm?”<br>
+                I… Bran… came to the Demon Forest in search of orem fruits.
+                However, as soon as I entered the Demon Forest I remembered the strange aura I felt in the forest.
+                <br>“Is the forest’s magic depleting…?”<br>
+                Speaking of the Demon Forest, plants grow due to the abundance of magic the forest has. Because of this
+                it’s home to unique herbs. However, not only does this magic grow plants but it also raises dangerous
+                monsters. Though, the magic level is similar to the plains, so there aren’t many monsters in the
+                outskirts. That’s the kind of place the Demon Forest is but for some reason I couldn’t sense its magic
+                nor its life. Proof of this, the plants didn’t look well and some parts were withered.
+                <br>“It dramatically changed this much in just a few days…?”<br>
+                At any rate this is where the 3rd Demon King sleeps. Perhaps this happens from time to time in this
+                unique forest.
+                <br>“Well whatever, for now I’ll just finish up the quest.”<br>
+                The Demon Forest was different from usual so I tried to finish the quest quickly and return back, so I
+                checked out the orem fruit tree that I was familiar with.
+                But…
+                <br>“Huh? There isn’t any…”<br>
+                Not a single orem fruit was hanging on the tree. I more or less had a similar experience gaining
+                knowledge of the orem fruit, like I did with the Hyria herb. But according to the knowledge about orem
+                fruits, they grow all year round.
+                <br>“…It also doesn’t look like a monster ate them.”<br>
+                I made sure to check the floor around the area for monster footprints but I didn’t find any. More than
+                anything, I didn’t even find any leftover orem fruits on the ground.
+                <br>“Is it possible they just disappeared without someone picking them or eating them?”<br>
+                Perhaps, due to the strange situation that’s going on the tree absorbed all of the fruits. If that’s so
+                then that means everything’s life and magic force is being absorbed. So much so that the orem fruits all
+                disappeared in an instant.
+                Then where’s the absorbed magic going to…?
+                <br>“!”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                At that moment…
+                I felt a massive magic aura, a little away from me. At the very least it’s a rank 3 monster.
+                <br>“There's 3 monsters in the outskirts?”<br>
+                This is according to what I’ve heard but the strongest monster in this forest is supposed to be rank 5.
+                …To be accurate, it’s what’s been confirmed to be in the Demon Forest. I’ve never travelled in the
+                depths but the deeper you go the stronger the monsters get. On top of that, monsters that don’t normally
+                form groups start attacking in groups. This is what makes the Demon Forest terrifying. Adventurers can’t
+                advance through the forest because of the pressure that the series of attacks puts on them. That’s why
+                no one truly knows what monsters are lurking in the depths.
+                <br>“This level of monster came out to the outskirts?”<br>
+                Well honestly speaking I could care less why such a monster has appeared. I cared more about the fact
+                that because of this magic I couldn’t collect my orem fruits.
+                <br>“I can’t complete my quest like this.”<br>
+                I quickly ran out and headed towards the source of this magic. I then saw the silhouette of a golem.
+                <br>“Isn’t that a rank 3 tyrant golem!?”<br>
+                I then noticed Aria laying on the ground in front of the tyrant golem. When I took a closer look at the
+                situation, Aria was covered in blood and the tyrant golem had their arms in the air about to crush Aria.
+                <br>“Like I’ll let you do that.”<br>
+                “OoooO!?”<br>
+                I cut the distance in an instant, kicked the tyrant golem and sent it flying. It was multiple times
+                bigger than me but thanks to my magic amplifying the strength of my body, I was able to easily blow it
+                away. However, as expected from a rank 3 tyrant golem… It stabilized itself while being blown away and
+                came thrusting back towards me.
+                <br>“Isn’t he moving too fast for his size?”<br>
+                I knew information about tyrant golems but it was my first time fighting one. Most other golems'
+                movements are slow because of the composition of their bodies. However this golem’s velocity surpassed
+                my anticipation and was plunging towards me. Though, in the end the size of its body has to be too big
+                to make sharp turns. Which is why I thought of avoiding it but Aria’s behind me. I can’t pick her up and
+                avoid it, the golem’s too fast.
+                I guess I have no choice…
+                <br>“Don’t think badly of me…”<br>
+                I unsheathed my sword and charged towards the tyrant golem. The moment we met, I bent to my knees and
+                slipped to the pocket of its chest and thrusted out my sword and in one slice, I sliced between its
+                legs.
+                <br>“OoooO!?”<br>
+                The slice started from between the legs and ended at the top of its head, splitting the tyrant golem
+                into two pieces. Due to the inertia of the tyrant’s charge, it headed towards Aria. But because it was
+                split into two, they missed Aria and fell down. I confirmed the tyrant golem was dead and lowered my
+                sword. I then quickly ran over to Aria. She lost a lot of blood and lost consciousness.
+                <br>“It looks like she’ll be fine with this potion I have on me.”<br>
+                I had a lot of top quality potions still left from my Black Emperor days. And I carry them ready just in
+                case. I sprinkled one of them onto Aria’s wounds. Her wounds were clearing up.
+                <br>“Hm… This one’s good for now… Now this one over here…”<br>
+                “Oooooo!”<br>
+                “!”<br>
+                I picked up Aria and was ready to withdraw from the forest. Somehow another tyrant golem appeared in the
+                depths of the forest. Plus…
+                <br>“Ooo…”<br>
+                “Ooooo!”<br>
+                “Hug!”<br>
+                “There’s two more?”<br>
+                The two tyrant golems suddenly appeared.
+                …This is strange. It would be believable if just one tyrant golem happened to cross into the outskirts.
+                But two showing up is a different story. Also tyrant golems don’t form groups together in the first
+                place.
+                <br>“OooooooO!”<br>
+                “Hm!”<br>
+                One of the tyrant golem attacked me with terrifying speed. While holding Aria, I dodge the attack.
+                Though as if expecting me to dodge it, the other tyrant golem came to attack me.
+                <br>“How depressing.”<br>
+                I used the tyrant golem’s thrown arm as a scaffold and leaped away. The tyrant golem’s red eye then
+                glistened.
+                <br>“Seriously.”<br>
+                The instant I jumped away a ray of light beamed from the eye. The ray of light pierced the ground where
+                I was standing just a second ago. After a brief moment of silence the ground blasted open.
+                <br>“They can use beams as well?”<br>
+                They kept shooting beams as I avoided them and in between the beams, they swung their arms at me.
+                <br>“These guys…”<br>
+                I looked at their movements and raised my eyebrows.
+                …No matter how I look at it, they're in sync. But as far as I know, tyrant golems are not intelligent
+                enough to be doing something like synchronization. Or maybe, someone’s controlling them…
+                <br>“There’s no point in thinking about it…”<br>
+                Normally I wouldn’t be struggling but I have Aria on me right now. I can’t move as sharply as I want to
+                with her. I can use magic but… I’m still in the outskirts of the forest. If I use it here then someone
+                who excels in magic detection may detect residue of my magic if they pass through here. If they examine
+                it they’ll know immediately that it’s the Black Emperor’s magic. If I’m found out then I’ll have to
+                return to being the Black Emperor. That’s the last thing I want. That being said, I can’t just do
+                nothing.
+                <br>“There’s no helping it. Sorry Aria. I’m going to be a little rough.”<br>
+                I put Aria over my shoulder and pulled out my sword once again.
+                Then…
+                <br>“Ha!”<br>
+                “OooooO!?”<br>
+                I instantly approached one of the tyrant golems and as we passed one another, I decapitated its head.
+                The headless tyrant golem took a few stumbling steps and fell flat onto the ground.
+                <br>“Oooooo!”<br>
+                “Alright.”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Right after finishing my swing, the other tyrant golem took the opening to begin another attack.
+                However, I predicted that to happen so I immediately jumped away. In that moment, the tyrant golem swung
+                down its arm and slammed them against the ground. The ground and trees popped out.
+                <br>“They have a ridiculous amount of power.”<br>
+                I soared into the air, using the popped up ground as scaffolds, and sporadically jumped through them.
+                The tyrant golem tried stopping me by firing off beams but none of them hit me. And then just like that,
+                I snuck behind it.
+                <br>“Hmph!”<br>
+                “OooooO–”<br>
+                The tyrant golem then tried to face me by turning around but by that time it was already too late. I had
+                split it in half from the top of its head down. The perfectly cut in two tyrant golem was completely
+                silent. I checked there weren't any other monsters around and sheathed my sword.
+                <br>“Not bad, I guess.”<br>
+                I used to live with my master the Sword Saint but I didn’t train in swordsmanship itself much.
+                …No, maybe that’s a little misleading. My master taught me how to wield a sword from start to end. But,
+                they taught me magic much more thoroughly. I don’t know why they pushed magic onto me more than
+                swordsmanship when they’re a swordmaster. Though, it’s that same magic that gave me the name Black
+                Emperor.
+                Thanks to that, I won’t be discovered as the Black Emperor as long as I don’t use magic. That’s why I
+                needed another method to fight and trained my swordsmanship for 3 years. I reapplied what my master
+                taught me at the time and thoroughly went over them in my training. There were rank 3 monsters in the
+                place that I trained but the tyrant golem wasn’t one of them.
+                <br>“I’m glad I got to try it out on them.”<br>
+                The strength of a golem varies greatly depending on the materials used to make them. This time it was
+                mainly composed of stone, soil and wood but its magical powers were uncommonly strong and its body was
+                harder than that of a regular ore-type golem. I was able to slice it in half with one slice, so for now
+                I guess my swordsmanship passes.
+                <br>“Well, then now… It’s a good thing that I was able to defeat them but what should I do with their
+                remains…”<br>
+                It would be nice if I could just leave them like that, but I can’t do that. First, Aria came across this
+                tyrant golem and a loud confrontation with them so the guild should have caught wind of the tyrant
+                golem's existence. The best option is to wipe their remains with no trace but…
+                <br>“Hmm… How do I do that…?”<br>
+                There’s actually a way to erase the evidence completely. There's a type of magic that only I can use,
+                that can get it done. If I use it, not only will it erase the remains of the tyrant golems but the magic
+                residue.
+                But…
+                <br>“My master told me not to use it much…”<br>
+                I don’t know why my master told me that but they prohibited me from using that kind of magic during my
+                Black Emperor days. The ban was more or less lifted once I retired but I was told to try to avoid using
+                it as much as possible. Much less, I was told to never use it with any humans around. Luckily, Aria is
+                knocked out and no one else is here so no one will notice it.
+                …There’s no other way. I’ll quickly use it and head back.
+                As I made my decision, and tried to activate my unique magic…
+                <br>“Huh!?”<br>
+                I suddenly felt the aura of an enormous amount of magic. It seemed like it was spreading from the Demon
+                Forest’s trees— no, from its entire soil. Above all, my eyes widened by the vastness and density of it.
+                <br>“What is it…?”<br>
+                This wasn’t comparable to the rank 0 Black Dragon that I once defeated… Something that releases
+                something like this…
+                <br>“Wha–!?”<br>
+                While thinking I noticed that the vast magic moving around was pouring into the tyrant golem that I had
+                decapitated. Furthermore, the other tyrant golem body parts were gradually assembling. When I moved my
+                line of sight at their bodies which were floating up in the air, I noticed the magic was being absorbed
+                into their bodies.
+                <br>“What’s going on…?”<br>
+                I quickly wielded my sword and got into a stance, and the three tyrant golems fused into one.
+                <br>“They’re…”<br>
+                An atrocious amount of magic that couldn’t be compared to the tyrant golems that I had just dealt with,
+                was dwelling. The span has also grown twice as big as before.
+                <br>“What is this thing?”<br>
+                I learned a decent amount about monsters from my master. On top of that I also came across different
+                kinds of monsters when I was the Black Emperor. Despite that, in front of me was an unknown monster.
+                …The magic that I had sensed a second ago is now dwelling within the golem. The magic inside wasn’t just
+                the new magic but also the magic that resided in the tyrant golems, reviving them and making them
+                stronger. Based on the essence of the magic, it’s by no means inferior to a rank 1 monster. While
+                observing it, the golem’s eyes sparkled red towards me.
+                <br>“Hm!”<br>
+                I instantly jumped back as a red beam shot off. With tremendous force, the place I was standing at
+                exploded.
+                <br>“Hey, hey, hey.”<br>
+                I dodge the approaching fragments of the explosion, trees and ground, and distanced myself from the
+                golem. The area that the red beam impacted was completely obliterated. The people in town must’ve heard
+                that. Luckily that beam was aimed at the place that I was standing but it’s frightening to imagine what
+                would’ve happened if it was headed towards the city.
+                <br>“I don’t have time to be playing around.”<br>
+                While still holding Aria, I raised my sword and in a blink of an eye closed the gap between me and the
+                golem. And as soon as I arrived I slashed at it.
+                However…
+                <br>“Wha–”<br>
+                The golem was faster than the tyrant golems and evaded it. Furthermore, it then rotated to my back and
+                swung its strengthened arm. Without hesitation I dodged the attack but a tremendous gust of wind came
+                from the fist and attacked me. The wind cut down the trees as well.
+                <br>“As I thought you’re getting stronger.”<br>
+                It was naive of me to think that only their magic powers had gotten stronger. I repositioned my sword
+                stance and reapproached the golem. The golem swung down its arms in order to intercept me.
+                <br>“Alright.”<br>
+                I dodged the attack by a hair, and slashed its arm.
+                However…
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                <br>“It’s hard.”<br>
+                The materials it’s made out of is the same as the tyrant golems so I thought I could cut it down with
+                just one slash. But for some reason the golem defense ability has gotten stronger. This is troubling.
+                <br>“Is that magic increasing its defense?”<br>
+                The magic that I had sensed within the depths of the Demon Forest. It’s reasonable to assume the cause
+                being that magic since it created this golem and made its attacking abilities stronger.
+                If that’s so…
+                <br>“Then I have to cut through it, along with its magic.”<br>
+                Going with the momentum of my slash I hook around to it’s back. I once again swing my sword upwards in
+                between its legs. The golem then quickly attempted to block the attack by rotating its arms. However,
+                those arms were easily cut through.
+                <br>“No matter how hard something is, there’s always a way to deal with it.”<br>
+                Up until now I’ve been using my sword normally but I dressed in my magic this time. Because of that my
+                magic interfered with the golems magic and was able to cut it like normal. I brought back my sword and
+                the turning golem fell down. With that, I rotated my sword and cut the golem as it was turning.
+                <br>“———”<br>
+                The golem stiffened and all of the materials its body was covered in such as soil and wood, fell to the
+                ground. The golem then oddly disintegrated into the air.
+                <br>“It disappeared…”<br>
+                It was my first time seeing a monster disappear like that. Especially for a golem, as their materials
+                typically disassemble on the ground. But, this golem didn’t leave a single thing behind and vanished.
+                <br>“Although I don’t personally need it, it’s an annoying monster for other adventurers.”<br>
+                Adventurers desire resources from monsters as they can strengthen the fighting power of an adventurer.
+                Since, these materials can be used to craft different kinds of equipment. But the entire body
+                disappeared, so other than defeating the monster it would’ve been a huge loss for an adventurer. Plus
+                it’s unusually strong, so that would’ve pissed them off even more.
+                <br>“Now then… there aren’t any more left are there?”<br>
+                I once more was wary of the area but I didn’t sense the presence of a monster. I then turn my attention
+                towards the depths of the forest.
+                <br>“I guess I’ll head back for now…”<br>
+                I was curious but Aria’s safety came first. Making my decision, I turned my back against the forest and
+                headed back to the guild.
+
+                * * *
+
+                <br>“Hm… U…Uh? Where am I?”<br>
+                “A-Aria! I’m glad you’re away!”<br>
+                I woke up and Rina, the receptionist, came plunging at me with a relieved look on her face. With a foggy
+                mind I look around and notice the guild had a hectic vibe in the air.
+                <br>“I’m at the guild? My quest…?”<br>
+                As I spoke, I remembered what happened. Th… that’s right. I went to the Demon Forest for my quest. But I
+                noticed something strange was going on in the forest. When I tried to leave, a powerful golem attacked
+                me.
+                <br>“There’s danger! There’s a golem…!”<br>
+                “It’s okay, the guild is already aware of it.”<br>
+                “I-I see…”<br>
+                The city would be in danger if the golem came attacking so I thought I needed to let everyone know as
+                soon as possible but I’m relieved to find out that they were already aware of the situation. As I
+                thought that, Rina’s expression got serious.
+                <br>“Aria. What happened in the Demon Forest?”<br>
+                “Huh? What happened? I was attacked by a golem…”<br>
+                Wait what? I was attacked by a golem right? So why am I still alive? I thought I was definitely going to
+                die. I still remember that moment. But, I’m alive. Rina explained to the confused me.
+                <br>“Bran accepted the same Demon Forest quest and saved you.”<br>
+                “Huh, Bran did!?”<br>
+                True, it isn’t a weird coincidence that Bran was in the Demon Forest as well. Since he’s the one who
+                taught me how to complete the orem fruit quest. However, the story of Bran saving me is strange.
+                <br>“H-How…?”<br>
+                “According to Bran, the tyrant golem wasn’t there when he found you.”<br>
+                “T-There’s no way it wasn’t there!”<br>
+                “Ohh, we also think so too.”<br>
+                Rina also agreed. After all, I even witnessed them aim and swing their arms down at me. If that’s the
+                case then what in the world happened…
+                There’s no way that Bran defeated it!?
+                “But there’s no way that Bran defeated it.”<br>
+                Rina answered me as if she was reading my mind.
+                “Ah…”<br>
+                I… indeed this may be rude but there’s absolutely no way that I’d believe he defeated it. I’ve only done
+                quests with him a few times but I’ve never seen him fight before. Naturally, sometimes monsters attack
+                us during our gathering quests. However it’s always me who fights the monster.
+                …Well I guess the monsters always appear near me so I have no choice but to fight them instead.
+                <br>“But Bran also said nobody else was there when he found you.”<br>
+                “T-Then does that mean it let me go!?”<br>
+                “There’s no way it let you go! If that were the case, then it’s strange that you healed wounds.”<br>
+                After she told me that I looked at my scuffed up body and didn’t find a single wound. In actuality, my
+                body showed traces of being attacked and my gear was battered as well.
+                Right… There’s no way a monster that attacked someone would heal their wounds themselves…
+                <br>“Above all, a fragment of the intense battle could be seen from the city. So there’s no doubt that
+                someone was fighting the tyrant golem.”<br>
+                “I see…”<br>
+                “Maybe, luckily, a high ranking adventurer happened to be nearby. For example a traveling rank 0
+                adventurer who doesn’t stop anywhere…”<br>
+                …There’s no way it was the Black Emperor right?
+                I’ve heard that the other rank 0 adventurers also do what they like and basically don’t have a place
+                they stay in. Though, I’ve never heard of them traveling in the direction of this country. Whoever it
+                was I want to say my thanks to them. Rina then let out a sigh.
+                <br>“But… from looking at your reaction it seems you also don’t know what happened do you?”<br>
+                “I’m sorry… But I can talk about everything that happened before I lost consciousness!”<br>
+                “I’d love to hear it! Including it with Bran’s account, it’ll help add more details to understand the
+                situation better.”<br>
+                I then went on to describe my situation all the way up till I lost consciousness.
+
+                * * *
+
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Around the time Bran returned to the city.
+                Deep inside the Demon Forest was the 3rd Demon King Natural with a stern expression.
+                <br>“As I thought, my enchanted underling wasn’t enough after all.”<br>
+                The monster Bran fought was a monster that Natural sent through the forest and enchanted them directly.
+                Therefore, despite being a rank 1 monster, it boasted the strength equivalent to that of a rank 0
+                monster. However in spite of that, Bran defeated the monster.
+                <br>“I’m not particularly surprised. It’s the 6th Demon King after all…”<br>
+                There was something on his mind that he couldn’t figure out about the defeat of his underlings. It was…
+                <br>“Why didn’t they use any magic?”<br>
+                Natural had an idea of how the fight went and was surprised to know that his underlings were defeated
+                without magic being used. The reason why he was shocked by this, is the fact that the 6th Demon King was
+                known for their magic abilities.
+                <br>“Also, that feeling… it’s that weapon called a sword that those humans use right? Maybe it was just
+                my imagination…?”<br>
+                The only things Natural can perceive is what kind of attacks were made and what kind of attacks were
+                received. In other words, Natural had no idea that Bran was a human.
+                <br>“Anyhow, despite being dangerous enough with just magic, they’ve come back even stronger!”<br>
+                The 6th Demon King was the exact personification of destruction. The 6th Demon King actually was born
+                after the disappearances of the gods and the stars. This 6th Demon King was different from the other
+                demon kings. The stars didn’t create them. They were birthed from the hatred that the gods and stars had
+                for each other. The 6th Demon King destroyed everything they touched. They had a special magic ability
+                that erased everything. Furthermore, unlike the other demon kings the 6th Demon King had no ego and did
+                not care whether it was human or monster, they killed them all.
+                Despite the purposes of both the gods and stars being different, they were both in a fight for world
+                supremacy. But because the 6th Demon King was so destructive they were on the verge of destroying the
+                world and led to a hostile relationship with the other demon kings. Consequently the 5 demon kings
+                including Natural put their lives on the line and fought the 6th Demon King, and were supposed to have
+                defeated him. When the 6th Demon King was defeated, they had no reason nor logic; they were purely an
+                existent that manifested and spread destruction. They didn’t fight close-quarters and use a sword. Which
+                is why the 5 demon kings focused on that aspect and successfully defeated him.
+                However, that same demon king’s presence has appeared in Natural’s Demon Forest. Furthermore, the owner
+                of that presence defeated Natural’s underlings with a weapon. In other words, there’s a high likely-hood
+                that the 6th Demon King has resurrected with reason and logic.
+                <br>“This… genuinely needs to be looked into. But how would I do that…”<br>
+                Natural had actually exhausted a lot of their magic from their fight with the 6th Demon King and was
+                replenishing in the Demon Forest. He was able to recover enough to awaken but he has yet to recover
+                enough to leave the Demon Forest. It was the same for the other demon kings who also retreated to their
+                territory and shut themselves in to rest.
+                <br>“I could send another tyrant golem but the human city seems to be in some kind of uproar, above all
+                the opponent is the 6th Demon king. They’ll just end up destroying them again. What should I do…”<br>
+                Natural was at a loss… He didn’t know that this encounter would be soon.
+            </p>
+            </p>
+            <br><br><br><br>
+            <div class="prev-next">
+                <div class="prev-next-link">
+                    <a href="bth-2.html">← PREVIOUS</a>
+                </div>
+                <div class="prev-next-link">
+                    <a href="early-access.html">NEXT →</a>
+                </div>
+            </div>
+            <div class="toc-container">
+                <div class="toc">
+                    <a href="bth-toc.html">
+                        <h4>Table of Contents</h4>
+                    </a>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+    <div class="footer"><a href="index.html">
+            <h1>flowers translations</h1>
+        </a></div>
+    <a class="kofi-link hover" href="https://ko-fi.com/flowerstranslations" alt="Support me on Ko-fi">
+        <img alt="Bran the Hero's Life Plan"
+            src="https://github.com/flowerstranslations/images/blob/main/support_me_on_kofi.png?raw=true" width="200"
+            title="Bran the Hero's Life Plan">
+    </a>
+</body>
+
+</html>

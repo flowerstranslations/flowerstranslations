@@ -1,0 +1,876 @@
+<html>
+
+<head>
+    <title>Chapter 2</title>
+    <link rel="stylesheet" href="https://flowerstranslations.github.io/scripts/stylesheet.css">
+    <script src="https://flowerstranslations.github.io/scripts/theme_toggle.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .title-container {
+            display: flex;
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            flex-wrap: wrap;
+            height: 200;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .title {
+            position: relative;
+            /* fixed doesn't work with align-items and justify-content */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wallpaper-container {
+            position: relative;
+            top: 0;
+            justify-content: center;
+            width: 100%;
+            height: 400;
+            overflow: hidden;
+        }
+
+        .wallpaper {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: blur(10px);
+            margin-top: -200px;
+        }
+
+        .page-title {
+            position: relative;
+            width: 60%;
+            height: auto;
+            top: 10px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 600;
+            height: 400;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            max-width: 600;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .image:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: relative;
+            font-weight: bolder;
+            font-family: "geo";
+            color: white;
+            cursor: none;
+            pointer-events: none;
+            text-shadow: 3px 3px 0px black;
+            opacity: 0;
+        }
+
+        .image-container:hover .image-text {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .page-paragraph {
+            position: relative;
+            top: -10px;
+            width: 80%;
+            height: 78.57%;
+            text-align: justify;
+        }
+
+        .prev-next {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .prev-next a {
+            font-family: 'geo';
+            font-size: 30px;
+            color: #f49a00;
+        }
+
+        .prev-next-link:hover {
+            opacity: 0.7;
+            transform: opacity 0.3s ease-in-out;
+        }
+
+        .toc-container {
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toc:hover {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.7;
+        }
+
+        .image-text {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "geo";
+            color: black;
+        }
+
+
+        .theme-size {
+            width: 50px;
+            height: 40px;
+        }
+
+        .theme-size:hover {
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #theme-toggle {
+            position: relative;
+            /* So child images position relative to this */
+            width: 50px;
+            /* Match image size */
+            height: 40px;
+        }
+
+        #theme-toggle img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centers both images */
+            width: 100%;
+            /* Ensures both images have same size */
+            height: 100%;
+        }
+
+        .image-box {
+            width: 70%;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <div class="dashboard-container">
+        <div class="website-name">
+            <a href="index.html">
+                <h3>flowers translations</h3>
+            </a>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="novels-titles.html">Novels</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="manga-titles.html">Manga</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="early-access.html">Early Access</a>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tabs-font">
+                <a href="donate.html">DONATE</a>
+            </div>
+        </div>
+        <div class="theme-size">
+            <div id="theme-toggle">
+                <img src="https://github.com/flowerstranslations/images/blob/main/sun.png?raw=true" id="sun"
+                    style="visibility:visible;" class="tabs-font">
+                <img src="https://github.com/flowerstranslations/images/blob/main/moon.png?raw=true" id="moon"
+                    style="visibility:hidden;" class="tabs-font">
+            </div>
+        </div>
+        <div class="more-bar" id="more-button">
+            <img src="https://github.com/flowerstranslations/images/blob/main/Hamburger_icon.png?raw=true">
+            <div class="more-tab-container" id="more-tab-cont">
+                <a href="index.html">
+                    <div class="more-tab-boxes">HOME</h5>
+                    </div>
+                </a>
+                <a href="novels-titles.html">
+                    <div class="more-tab-boxes">NOVELS</h5>
+                    </div>
+                </a>
+                <a href="manga-titles.html">
+                    <div class="more-tab-boxes">MANGA</h5>
+                    </div>
+                </a>
+                <a href="early-access.html">
+                    <div class="more-tab-boxes">EARLY ACCESS</h5>
+                    </div>
+                </a>
+                <a href="donate.html">
+                    <div class="more-tab-boxes">DONATE</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="wallpaper-container">
+        <div class="title-container">
+            <a href="index.html">
+                <h1>flowers translations</h1>
+            </a>
+        </div>
+        <img class="wallpaper" src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+    </div>
+    <div class="page-container">
+        <h3 class="page-title">Bran the Hero's Life Plan: For My Second Life I'd Like to Be an Odd Jobs Guy</h3>
+        <br>
+        <div class="image-container">
+            <a href="bth-toc.html">
+                <img alt="Bran the Hero's" class="image"
+                    src="https://github.com/flowerstranslations/images/blob/main/bran.jpg?raw=true">
+            </a>
+            <h5 class="image-text" style="color:white; font-size: 40px; font-family:'geo';">TABLE OF CONTENTS</h5>
+        </div>
+        <div class="page-paragraph">
+            <h3 style="text-align:center; font-family:'aldo the apache', sans-serif">CHAPTER 2: ODD JOB QUESTS</h3>
+            <p>A week has passed since I became a rank 10 adventurer. I’ve been living a fulfilling life since then,
+                completing rank 10 quests one after the other. I collected a lot of Hyria on my first day but another
+                Hyria collecting quest was posted the next day. It seems there’s no end to the Hyria they need. Though
+                surprisingly, the Hyria had already grown back to the point of harvesting. I learned that the herb is
+                very reproductive, but I had no idea that it would grow back this fast. Because of this, I devoted
+                myself to picking them all day again. Then on a different day I collected both Hyria and another herb.
+                By the way, the moment I touched the other herb, information about it came pouring into my brain after
+                all. ...I have no other idea what it is but I have no way to investigate it. A normal person would
+                probably find it to be disturbing to have memories or knowledge that you didn’t know suddenly appear in
+                your brain. However, my mind seems to be a bit different from regular people, so I don’t really mind it.
+                Rather, other than the headache that comes with it, I even find it to be convenient. My master might
+                have wanted to fix this as well, the way my mind works. Regardless of that, I’ve been completing herb
+                quests and have gained various information on herbs. But today’s quest is different.
+                <br>“Hm… They said they saw it this way but...”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Today I’m searching for a certain cat. This quest is perfect. The client lost their cat so they posted
+                the quest apparently. Though I have to admit this quest is only perfect for me. Despite it being
+                laborious and time consuming, it doesn’t pay very well. So there aren’t many adventurers who are willing
+                to accept this kind of quest. Though these types of quests are right up my alley. The cat I'm looking
+                for is a white, black, brown Calico cat with a pink collar. I straightforwardly asked around the city
+                searching for it. However, this was surprisingly more trouble than I anticipated.
+                Although Kret Is considered to be a small city, that’s merely compared to the capital city of the Ledion
+                Kingdom. Naturally, it’s taking me a while to find them since I have to search throughout the entire
+                city. And not only that but I get puzzled looks everytime I call out for the cat and ask around. A
+                missing cat quest isn’t popular even amongst other odd job types quests. At any rate, I intently went
+                searching around downtown, in order to complete my ongoing quest. That’s when---
+                <br>"Woooo—”
+                <br>“Hm?”<br>
+                For a moment I heard a howl-like sound.
+                <br>“What was that?”<br>
+                I stopped and listened closely to hear it again, but I heard nothing.
+                <br>“Was it just my imagination...?”<br>
+                Though I certainly heard a howl...
+                I looked around just to make sure but there was no sign of anything.
+                <br>“Meow.”<br>
+                “Oh!”<br>
+                The pink collard Calico cat suddenly appeared in front of my eyes.
+                <br>“I found you!”<br>
+                In a panic, I immediately chased after it but the Calico Cat noticed me and with a strong first step
+                took off. The cat smoothly avoided the passersby and went into a back alley. I chased after it, making
+                sure not to bump into anyone. The back alley was a dead end. However, as expected from a cat, it swiftly
+                leaped onto a wall’s scaffold and jumped onto the roof and escaped. I see, this is pretty troubling.
+                Especially for new adventurers, they have to go all out just to keep up. Plus, as you are busy trying to
+                get up on the roof, the cat is already escaping to its new location. However...
+                <br>“Oof.”<br>
+                “Meow!?”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                In one breath, I jumped onto the roof, landing right beneath the cat. The cat tried to escape but I
+                quickly captured it.
+                <br>“Capture complete.”<br>
+                “Meow! Meow meow meow!”<br>
+                “Whoa!? Calm down.”<br>
+                The cat frantically tried to escape and swiped their claws at me but I evaded it. Hmm, I wonder why
+                animals despise me? They’ve hated me even in my Black Emperor days. The same goes for monsters, the
+                moment they see me they have an urge to kill me and attack. It’s a different story when it comes to
+                humans. I’ve been living my life with no problems. And not once has someone told me that they didn’t
+                like me the moment they saw me... I have to be careful from now on when accepting odd job quests. At any
+                rate, I safely returned the cat to its owner, completed the quest and then returned home.
+                * * *
+                The next day.
+                I accepted another non-herb collecting quest and headed over to the client. This time, it was a
+                transporting goods quest so unlike a herb collecting quest where I would bring the items to the guild, I
+                had to head over to the client. The contents of this quest consists of a company looking for someone to
+                load goods onto a carriage. Though surprisingly not many people are willing to do such a quest. The
+                labor is quite taxing and the pay is low. And on top of that, the company might demand compensation in
+                the case that you damaged any goods, which is why people avoid this kind of quest.
+                Though, I don’t mind the low pay and even in the case that I damage something I don’t mind paying the
+                compensation fee either, since I have the money to do so. Well if I were to damage the goods by my
+                carelessness that’s one thing but if someone were to accuse me of something strange then I’d have to
+                look for other options. But that probably won’t happen. While thinking about this topic, the company
+                building came into view. The company was the biggest amongst the companies within the city. Upon
+                arriving, a carriage standing in front of the magnificent building, was having things loaded onto it by
+                people already. I quickly headed over to the person who was giving out orders.
+                <br>“Excuse me! I’m here for the quest posted at the guild...”<br>
+                “Huh? Oh! You accepted that quest!? Wait here for a sec!”<br>
+                After giving out brief directions he came back.
+                <br>“Sorry for the wait. I’m Berumo. President of the Berumo Enterprise!”<br>
+                “Nice to meet you, I’m Bran.”<br>
+                Berumo gave out a sigh as if he was shocked.
+                <br>“In the end you’re the only one who accepted the quest.”<br>
+                “S… sorry about that.”<br>
+                “No, it’s not your fault. I’d like it if they accepted quests that regarded the local area but
+                adventurers are more interested in monster hunting so it can’t be helped. I just wish they could at
+                least look at our quests.”<br>
+                “...”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                I could only give a vague smile towards Berumo’s words. Well maybe if the reward was higher then maybe
+                it’ll be a different story, buy even that isn’t for sure. The company would go bankrupt though if they
+                offered a higher reward for loading goods quests. More than anything, I’m sure there’s a lot of
+                adventurers who are concerned about compensation fees and hours spent working. In reality, these kinds
+                of quests can take 2 days to finish and the progress can vary.
+                <br>“Oops, I ended up complaining didn’t I. Anyways, you’ll be fine as long as you load the goods inside
+                the company building onto the carriage as instructed.”<br>
+                “Okay.”<br>
+                I headed inside the building and inside was a variety of prepared cargo. It varied from food ingredients
+                like grains, and vegetables to recovery medicine, towels and even daily necessities packed inside wooden
+                boxes. For now, I gathered bags of grain and carried them over to the carriage.
+                <br>“Y…you’re joking right? To carry that amount in one go...”<br>
+                “Huh, isn’t one heavy enough?”<br>
+                “He shouldn’t be able to carry them like that...”<br>
+                Carrying the bags of grain grabbed the surrounding people's attention and caused a stir. Amongst them a
+                person worriedly called out to me.
+                <br>“H…hey are you okay carrying that much!?”<br>
+                “I’m fine. This is still light for me.”<br>
+                “I…it’s light...”<br>
+                True, the cloth bags are quite heavy. But because of the training my master put me through, I can use my
+                magic to spread through my body and make it become stronger than that of a normal person’s. That’s why
+                this level of heaviness isn’t enough to make me suffer. The people around were taken aback but once they
+                snapped out of it they followed in my steps and went back to work. Perhaps seeing me carry the
+                instructed cargo triggered it but a man was carrying in multiple wooden boxes.
+                <br>“H…hey, don’t overdo it!”<br>
+                “I…it’s okay! I can at least carry this much!”<br>
+                That’s what he says but just by looking at him I can tell how dangerous it was. Which is why I went to
+                assist him but as I was on my way he unluckily bumped into a female employee.
+                <br>“Ahh!”<br>
+                “Ahh?!”<br>
+                At that moment the man lost his balance and the goods he was carrying over were knocked over. And not
+                only that but I also had to worry about the woman I bumped into!
+                <br>“Hm!”<br>
+                In an instant, I cut the distance and wedged myself between the man and woman, I then used one hand to
+                support the falling woman and used my other hand to catch the knocked goods midair.
+                That was close...
+                I barely caught the wooden boxes in time.
+                <br>“Are you okay?”<br>
+                “Huh? Oh, yeah!”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                The surprised woman replied with energy after I questioned her well-being. I roughly checked up on her
+                but it didn’t seem like had any injuries. I released the woman who was fine for not and carried over the
+                wooden boxes I had in my other hand over to the carriage. I then called out to the man who lost his
+                balance.
+                <br>“What about you? Are you okay?”<br>
+                “O…oh. I’m okay... Rather! Thanks to you I’m okay! Sorry about that...”<br>
+                The man had an awkward expression and scratched the back of his head. Berumo then came rushing over
+                here.
+                <br>“Did something happen!?”<br>
+                “S…sorry president... I made a blunder...”<br>
+                The man explained the situation and Berumo let out a surprised-like sigh.
+                <br>“Ha...How lucky. The goods inside the wooden box didn’t get damaged. And I’m glad nobody got hurt
+                but please be careful from now on.”<br>
+                “Understood...”<br>
+                Berumo then turned to me.
+                <br>“Thanks to you, nobody got hurt. Thanks.”<br>
+                “No, I’m just glad I made it in time.”<br>
+                “Nevertheless...You don’t look like it but you’re quite strong aren’t you. How about you quit being an
+                adventurer and work for my company? How about it?”<br>
+                My eyes widened, I didn’t expect to get such a job offer. To think that I, who only knew how to fight
+                would get a job offer like that... Although, at the moment I don’t intend on quitting being an
+                adventurer.
+                <br>“I’m extremely thankful but I like the way my lifestyle is right now.”<br>
+                “I see...Well let me know if you ever change your mind.”<br>
+                “Okay!”<br>
+                I went back to work after such an exchange. We finished loading around sunset and I safely completed the
+                quest.
+                * * *
+                A certain day after finishing various odd job quests.
+                <br>“Congratulations on your promotion to rank 9!”<br>
+                “No thanks.”<br>
+                “What!?”<br>
+                While trying to accept a quest at Rina’s desk as usual, she said something strange. Promotion to rank
+                9...
+                <br>“I’m fine staying in rank 10, so no thanks.”<br>
+                “No no no! You can’t do that!”<br>
+                “Please, somehow...!”<br>
+                “Even if you ask me, it’s the rules! rank 10 adventurers is just an interim period. Every rank 10
+                adventurer ranks up once they’ve completed a certain number of quests!!”<br>
+                “N…no way!”<br>
+                “Why are you so down about it…?”<br>
+                Despite finally becoming the rank 10 adventurer that I longed for, I didn’t expect to be forced to rank
+                up to rank 9. My master recommended me and I started from the middle ranks, but I properly took a test
+                all the way to rank 0.
+                <br>“Aren’t there supposed to be a test for promotion…?”<br>
+                “Tests start from rank 7 and above. Adventures rank up naturally with time until rank 8.”<br>
+                “What, all the way up to rank 8!?”<br>
+                I fell to my knees. Th…there’s no way… What’s going to happen to my quests…! Rina's face stiffened as
+                she looked at me in despair.
+                <br>“I don’t understand why you're so depressed about it… Usually, people want to promote and work hard
+                for a promotion… That’s why I’ve never needed to explain the natural promotion that occurs up until rank
+                8.”<br>
+                “There are people that think rank 10 is fine, you know.”<br>
+                “That’s just you, Bran.”<br>
+                There’s no way I’m the only one. There’s gotta be someone else who shares the same sentiment. I believe
+                it.
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                <br>“B…but it's fine isn’t it! Although it can be said that rank 9 is easy, the monster hunting quest
+                restriction is lifted from rank 9 and above!”<br>
+                “I don’t care…”<br>
+                “Y…you don’t care!? U…uh, look. The rewards are also higher!”<br>
+                “I don’t care…”<br>
+                “What’s really going on!?”<br>
+                Becoming able to accept monster hunting quests and obtaining higher pay isn’t important to me. As you
+                know, I did monster hunting quests so much in my Black Emperor days, I’m at the point where I’m fed up
+                with them now. I hate it, there’s no meaning to registering as a rank 10 adventurer if I have to accept
+                nothing but monster hunting quests.
+                <br>“I don’t know why you hate the idea of ranking up so much but as an adventurer you should increase
+                the quests you can do for the citizens.”<br>
+                “For the citizens?”<br>
+                “That’s right! Even if rank 9 adventurers deal with generally weak monsters, it doesn’t change the fact
+                that these monsters are a threat to citizens who have nothing to do with fighting. Adventurers can
+                secure townspeople’s safety by defeating these weak monsters. And more than anything, it’s an
+                adventurer's number one mission to pioneer undeveloped areas with crowds of monsters in order to spread
+                humanity's living space.”<br>
+                “...”<br>
+                It’s exactly as Rina says, even the slimes in the plains are dangerous to folk who have nothing to do
+                with monsters. In other words, it’s necessary to defeat such weak monsters. …Up until now, I’ve been
+                defeating monsters as told by powerful people. Consequently, I haven’t thought about how it affects the
+                townspeople’s lives. Hm… Do I need to consider hunting monsters from now on…? While pondering the
+                question, Rina continued.
+                <br>“Well, although you can start accepting monster hunting quests starting from rank 9, it doesn’t mean
+                you can’t accept rank 10 quests and above anything else, monster hunting quests are popular amongst low
+                rank adventurers. Which makes it difficult to get your hands on one, as it’s a first come first served
+                basis…”<br>
+                “So that’s how it is! I can continue accepting herb collecting quests then! If that’s the case then it’s
+                fine!”<br>
+                “Huhhh…”<br>
+                I thought for sure that I wouldn’t be able to accept them once I ranked up. Actually, now that I think
+                about it, I never thought about accepting low rank quests when I was an intermediate rank adventurer
+                because the quests specific for that rank start to increase. Well, it’s because I was forced to accept
+                those quests rather than the low rank quests. At any rate, I’m relieved that I can still accept odd job
+                quests. While I was in high spirits, Rina let out a sigh.
+                <br>“...That’s enough. More importantly, please hand over your adventurer license so that I can change
+                your rank.”<br>
+                Urged by Rina, I handed her my adventurer license and she once again put my license in the strange box.
+                After a short while, I received my license back, on it was an engraving of my new rank, “rank 9”.
+                <br>“Okay, I have now returned your license. I altered it and promoted you to rank 9,
+                congratulations.”<br>
+                “...Thank you.”<br>
+                “You’re blatantly not happy about it!?”<br>
+                I sighed while I regrettably looked at the “rank 9” engraving. Hahh… there’s no nothing I could do about
+                it. At any rate, the important thing is I can still accept odd job quests. Luckily, there’s a test that
+                needs to be passed in order to enter the intermediate ranks entrance, rank 7. If that’s the case, then I
+                can stay in the low ranks as long as I don’t pass that test. Even if my rank changes I won’t stop
+                putting my best efforts. I put my feelings behind me and as usual looked at the quest board and grabbed
+                a herb collecting quest. Then, I had Rina process the quest for me, she looked at it and gave a sigh.
+
+                * * *
+
+                One month has passed since I was promoted to rank 9.
+                In one month, I regrettably ended up promoting to rank 8.
+                Although, I won’t rank up as long as I don’t take the promotion test. I’ll just complete odd job quests
+                as a rank 8 adventurer from here on out. I headed over to the gilded and mid-thought I realized the
+                adventurers that were already in the guild were looking at me. Then, one of the adventures was eyeing me
+                with a look of suspicion.
+                <br>“Hey, why’s everyone eyeing him down?”<br>
+                “Hm? Ohh… you mean the odd job guy?”<br>
+                “You don’t know about him? That guy hasn’t accepted a single monster hunting quest despite being
+                promoted to rank 8. Up until now he’s been accepting nothing but odd job quests.”<br>
+                “That’s right. While everyone immediately accepts quests and quickly takes the promotion tests, he’s the
+                only one who doesn’t take the test and stays rank 8.”<br>
+                “Like just recently, a new adventurer who got their license after him was promoted to rank 7.”<br>
+                “Seriously!?”<br>
+                “If he doesn’t have any intention of promoting, he doesn’t even show the slightest sign of fighting
+                monsters. What in the world does he want to do and why did he even become an adventurer?”<br>
+                I could hear criticism about me throughout the whole room. People have been giving me looks lately. The
+                number one purpose of an adventurer is to fight monsters and secure living territory for humanity.
+                Rather, there are a lot of people who believe in that. Amidst that, I probably seem like a coward from
+                the point of view of the other adventurers. Though, I don’t intend on retracting my stance on this. In
+                the end, a lot of adventurers don’t do quests for those purposes when they rank up, they do them for the
+                money.
+                Furthermore, powerful people like noble and royal families make adventurers into their lap dogs, in
+                order to upkeep their appearances. Where’s the purpose for humanity in that? However, most intermediate
+                adventurers hunt monsters so it’ll naturally help humanity. I ignored the stares, checked the quest
+                board, grabbed a herb collecting quest as usual and headed over to Rina’s desk.
+                <br>“This quest, please.”<br>
+                “Okay okay, it’s another herb collecting quest right. Bran, you don’t want to try a different
+                quest?”<br>
+                “Hm? I sometimes do shopping quests and item search quests as well, don't I?”<br>
+                “No, I’m talking about a hunting quest…”<br>
+                “I don’t want to accept that kind of quest.”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Hunting quests are popular though, that doesn’t mean I don’t have opportunities to accept them. However
+                even if I don’t do it another adventurer will properly do it themselves. Compared to them, odd job
+                quests are untouched. New adventurers immediately rank up and transition into monster hunting quests.
+                That’s why I accept and complete the stagnate untouched quests.
+                <br>“It’s true that thanks to you the accumulated odd job quests are cleared out, but you don’t need to
+                cling on to them to this extent…”<br>
+                “It’s because it’s fun.”<br>
+                “...The only one who can say that they’re fun is you, Bran.”<br>
+                Rina sighed and gave a slight serious expression.
+                <br>“But, don’t you know what everyone calls you because all you accept is odd job quests?”<br>
+                “Odd job guy right? It’s fine isn’t it? It suits me perfectly.”<br>
+                “Why are you happy about that…”<br>
+                After all, it’s proof that people have an image of me doing odd jobs. Just knowing that gives me energy
+                to try hard and complete these odd job quests. That’s why it makes me simply happy that my hard work is
+                recognized.
+                <br>“I don’t understand your view on this… but, at this rate you’re going to get labeled as a bad
+                adventurer, you know?”<br>
+                “When the time comes, it comes.”<br>
+                Certainly, in the eyes of a serious adventurer I’m an eyesore. Of course, I’m working hard in my own way
+                but what someone thinks is important is different, it’s simply different values. Rina, who's realized
+                that I don’t care about what’s said about me, sighs.
+                <br>“...fine. Just do one favor okay?”<br>
+                “Hm? A favor? A favor from the odd job guy?<br>
+                “Yeah. I ask because you’re the odd job guy… Actually, a girl registered as an adventurer a few days
+                ago. And she’s started accepting quests as a rank 10 adventurer.”<br>
+                “Oh, that’s good isn’t it.”<br>
+                Beginner adventurers move up the ranks from this point after all.
+                Rina gave a troubling look on her face.
+                <br>“You see, she still hasn’t been able to complete a single quest.”<br>
+                “What?”<br>
+                My eyes widened to the unsuspecting words. As you know, exactly as my teased name odd job guy implies,
+                there’s really nothing but odd job quests.
+                What does she mean they can’t clear a quest…? Rina looked at me with slitted eyes as if she was reading
+                my mind.
+                <br>“...This is part of your fault, Bran.”<br>
+                “Huh?”<br>
+                “You take up all of the odd job quests, so the newbie doesn’t have a chance to grab a good odd job quest
+                to do.”<br>
+                “W, wait wait! It’s true that I accept odd job quests as much as possible but I don’t take them all, you
+                know?”<br>
+                “There’s a problem with those quests that you leave behind. For example, the lost cat quests are quite
+                troubling… and compared to the high paying Hyria, the harder to distinct herbs are the only ones
+                left.”<br>
+                “Ah…”<br>
+                She’s going as far to explain this to me so I reflected on my actions. It’s exactly as she says, other
+                than the time I did a lost cat quest downton, I haven’t accepted one since. Furthermore, other quests
+                around the town involve goods loading, and specific area cleaning. The company that posts most of the
+                loading goods quests, just embarked with the loaded goods to sell them off, so they're not recruiting at
+                the moment. And I periodically clean the city so there aren’t many cleaning quests either.
+                And regarding the Hyria quests that I’m really into, they’re constantly being posted so I thought there
+                was a demand for them, so I made sure to definitely accept them. Actually, Hyria is an important
+                ingredient for making a medicine that cures light sickness and injuries. I accept other herb collecting
+                quests but these ones are ingredients for hair restoration, mana potions, and for experimentation
+                purposes but because they’re not as important as Hyria, they’ve been put on hold. As a result, only the
+                difficult, tricky odd job quests are left.
+                <br>“You always collect the herbs in top-quality condition, however everyone else isn’t like you. And
+                lost cat quests are quite difficult because it depends on luck whether you can find them.”<br>
+                “...Sorry.”<br>
+                I was enjoying the quests so I haven’t given it much thought. This isn’t an excuse but, in the past I
+                never caused issues by accepting a bunch of quests so I was careless. Rather, they were quests that no
+                one ever accepted and were scaringly difficult so there was never a need to worry about them troubling
+                anyone else. Rina got flustered after noticing me reflecting on my actions.
+                <br>“Oh, I’m sorry! I ended up complaining to you a little, I’m not saying you’re in the wrong. In
+                reality, odd job quests tend to pile up so It’s a good thing that there’s someone who’s willing to clear
+                them up. It’s just that, there’s never been someone who’s been so gung ho on doing odd job quests to
+                this extent…”<br>
+                “So, what’s the favor you’re asking of me?”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                Feeling uncomfortable, I asked her again, Rina opened her mouth.
+                <br>“Actually, I want you to guide them.”<br>
+                “G…guide? I’m not the type of person to show someone the ropes… Above all, I’m not even an adventurer
+                who accepts monster hunting quests. I’m not in the position to teach other adventurers.” <br>
+                “I know. Like I just said, I’m asking a favor from you because you accept a lot of odd job quests.”<br>
+                Rina recited with a serious expression.
+                <br>“I don’t expect you to teach her how to fight. She can learn that from the guild, no problem.”<br>
+                That’s true. There’s probably nothing she can learn from me anyways.
+                <br>“What I’m asking for… is specifically showing her how to complete a herb collecting quest.”<br>
+                “Herb collecting?”<br>
+                “That’s right. You are constantly collecting and delivering top-quality herbs so our clients are always
+                extremely happy. That’s why, if you can share even a little bit of that knowledge it would be very
+                helpful.”<br>
+                “Hm…”<br>
+                “...Of course, I’m not saying that it would be for free. Knowledge is an adventurer’s intellectual
+                property after all. Which is why, I’ll post it as a quest from the guild and have them pay the reward.
+                I’ll even have it promote you to rank 7 if you’d like—”<br>
+                “I refuse.”<br>
+                “...Joking aside, I can have the guild pay a hefty reward. What do you think?”<br>
+                I’m not really opposed to teaching them. Rather, I don’t even know where my knowledge of herbs came
+                from. I’m not sure it’s okay to teach something that you don’t know where it came from. However, it must
+                not be wrong since it’s been recognized and I’ve been using that knowledge this whole time to collect
+                the herbs. Besides, it would be reliable if I were to teach it. More importantly, I can’t ignore this
+                issue if I’m causing problems for other new adventurers.
+                <br>“Process that quest.”<br>
+                “Really!? Thank you! This is experimental but, if more adventurers become more knowledgeable about herbs
+                then it should be helpful for everyone in their adventures!”<br>
+                Certainly, herb knowledge doesn’t just help completing quests. Hyria can heal wounds by just crushing it
+                and rubbing it on the wound. Adventurers can prepare in case the situation calls for it. Through Rina’s—
+                rather, the guild’s quest, it was decided that I’ll show up at the guild in the afternoon tomorrow to
+                guide the newbie adventurer.
+
+                * * *
+
+                The next day.
+                I headed over to the guild at the promised meeting time. A small blue long-haired girl with the same
+                blue in her eyes was standing by Rina’s side. The small girl is wearing leather armour with her just
+                recently bought sword sheathed. She’s probably the girl Rina was talking about yesterday. When I quickly
+                headed over to where the two were, Rina noticed and faced me.
+                <br>“Oh, Bran! Over here!!”<br>
+                “N… nice to meet you! I’m Aria! Th… thank you for looking after me today!”<br>
+                The girl named Aria who anyone can tell that she was rigidly nervous, bowed her head in a 90 degree
+                angle.
+                <br>“Hello, I’m Bran. You don’t have to be so stiff.”<br>
+                “N… no! I’m having an upper adventurer show me the ropes, so I have to at least show this much
+                respect…!”<br>
+                How should I put it, this girl is filled with motivation. Other newly registered adventurers also have
+                as much motivation but in the end that’s because they’re trying to promote quickly and become able to
+                accept monster hunting quests. In contrast to that, Aria in spite of doing a herb collecting quest, is
+                brimming with motivation. Even if I’m the cause of her troubles, she shouldn’t have any problems if she
+                skipped this training. However Aria showed up with the intention to increase her knowledge. Though even
+                then, I can tell the motivation in her eyes is slightly different than those in other adventurers.
+                <br>“Well then, it may be abrupt but shall we start heading out?”<br>
+                “Y… yeah! Which herb will you teach me about today…?”<br>
+                “Just to be sure, I plan to focus on collecting Hyria and as soon as we find any other herbs that appear
+                on quests, I’ll teach you about them.”<br>
+                “I- I see!”<br>
+                Rina had a sweet smile on her face after seeing Aria’s eyes sparkle in excitement from my words.
+                <br>“Well then Bran, I leave the rest to you. Try your best Aria!”<br>
+                “I will!”<br>
+                We broke apart from Rina and I took Aria to the plains where Hyria grows. I immediately asked Aria a
+                question when we arrived at the plains.
+                <br>“Now then, this is the plains where most of the quest herbs can be picked. Various herbs can be seen
+                with just a glance. Can you tell them apart?”<br>
+                “S… sorry… I only sort of know about Hyria so anything more than that is a bit troubling for me…”<br>
+                Aria had an apologetic expression on her face but there was no need for her to worry about it. That’s
+                why she’s taking this training. So that she can learn about them. Plus, all she needs to know is how to
+                distinguish them from one another. At any rate, the plains must look like there’s only weeds to someone
+                who doesn’t know how to distinguish Hyria. The same can be said for the other herbs, rather it’s
+                probably even harder to distinguish Hyria characteristics than the other herbs. From the point of view
+                of someone who doesn’t have access to this knowledge it must be difficult to tell them apart. For now, I
+                picked the Hyria at my feet.
+                <br>“First of all, this is Hyria. As you can see, it has a characteristic of two leaves branching off
+                from each other. When harvesting them don’t pull from the root, pick them off around the stem, then
+                wrapping them in a wet towel can preserve their freshness. Although this works when you’re bringing them
+                back to the city from the plains, if you’re going to be carrying them for multiple days then you need a
+                different method to preserve them.”<br>
+                “I… I see… By the way, what are these other methods?”<br>
+                “Soaking the stem in water. You can carry them to a certain extent if you can use water magic but to go
+                that far for collecting herbs is a bit much…”<br>
+                “Th… that is a bit of an overkill…”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                It’s a different story if an adventurer has an abundance of mana, if that’s not the case and the quest
+                isn’t particularly important then there’s no need to frantically preserve the Hyria to that extent.
+                Furthermore it grows around here anyways.
+                <br>“At any rate, this method of preserving works for other herbs as well so you should remember
+                it.”<br>
+                “Understood!”<br>
+                “Also… I sometimes see this one on quests as well.”<br>
+                I said pointing at a herb whose leaves had a more concentrated color to them compared to the weeds and
+                herbs around it. The plant’s leaves, with a concentrated green color, have serrated edges to them.
+                <br>“This is a herb called Ruluk. It has healing attributes.”<br>
+                “This is… I’ve never paid it any mind till now but this is also a herb huh.”<br>
+                Well I guess even if you’ve never noticed it before, it doesn’t change the fact that it’s a herb.
+                <br>“The method of collecting them is the same as for Hyria, however you have to be careful when using
+                Ruluk.”<br>
+                “What do you mean?”<br>
+                “Well, you can use Hyria herbs to stop the bleeding of open wounds by rubbing them on the wound. They
+                can be rubbed onto the wound as they are. In that specific situation you can even get a better healing
+                effect if you were to crush them and then rub the crushed Hyria onto the wound.”<br>
+                “Okay...”<br>
+                “And, with Ruluk, you can restore your mana by drinking it. However, if you were to eat it as is then
+                you’ll get a stomach ache. That’s why you have to boil it in water for about 5 minutes, and then you
+                need to extract the Ruluk essence from it in order to drink it safely.”<br>
+                Generally the positive effects of herbs can be seen without doing anything with them, however sometimes
+                herbs like Ruluk can have negative effects to the body if an extra step isn’t taken to prepare them.
+                Aria listened and nodded with a docile look on her face.
+                <br>“I’ll be careful!”<br>
+                “Alright. For now, we’ll pick Hyria herbs. Try picking them following the instructions I gave just a
+                second ago.”<br>
+                “Okay!”<br>
+                Aria replied energetically. She then proceeded to pick the spread out Hyria herbs. Aria was then able to
+                safely collect the Hyria herbs and finished her first quest.
+
+                * * *
+
+                Around the time Aria safely completed her quest.
+                At the Demon Forest adjacent to Kret of the Rireito Kingdom.
+                Is home to strong plant and insect type monsters, making it one of the most dangerous zones in the
+                world. Above all, it’s said that the 3rd Demon King, one of the demon kings who once instilled fear
+                across the world, is sleeping in that forest. The monsters inhabiting the Demon Forest are believed to
+                be under the 3rd Demon King’s ruling. It’s a very dangerous area, however even then, it’s one of the
+                safer areas amongst the other dangerous territories. This is because, despite the 3rd Demon King being
+                one of the demon kings that has been at odds with humanity throughout history, the 3rd Demon King in
+                particular has been very docile in comparison to the other demon kings. Rarely taking action against
+                humans.
+                The 3rd Demon King is known to be moderate in the eyes of humanity. Acting as proof of this, the
+                monsters of the Demon Forest hardly step out of the forest and it’s not particularly dangerous unless
+                one were to step foot into the forest themselves. Furthermore, the Demon Forest is said to be a gold
+                mine for humanity as the land is home to various important herbs. Though, this doesn’t change the fact
+                that a demon king is living in the territory. Amongst the humans, there’s a belief that this is all part
+                of the 3rd Demon King’s plan to trick the humans and attack once they have let their guard down.
+                Consequently, in contrast to the scale of the city, there are a lot of soldiers based in Kret, which is
+                the closest city to the Demon Forest.
+                Deep inside the Demon Forest.
+                <br>“This presence… Is that the 6th Demon King…?”<br>
+                In a place made up of plants resembling that of a cradle, Natural the 3rd Demon King calmly awoke from
+                their slumber. Natural is wearing plants around their body like a garment with a somewhat thin,
+                translucent figure. The awoken Natural, spread her 6 senses to find the presence she sensed outside of
+                the Demon Forest. She then grew a stern expression once she realized the sensation he felt earlier
+                wasn’t his imagination.
+                <br>“It can’t be… We defeated him…”<br>
+                —The 6th Demon King.
+                The demon king who was never supposed to be born and was defeated by the other 5 demon kings. The
+                personification of destruction that destroys anything in front of it, without a single underling.
+                Natural had sensed his presence.
+                <br>“No, there’s no way it’s him… The forest would have been wiped by now if it was…”<br>
+                Even the 3rd Demon King who humanity feared of, felt threatened and acknowledged the 6th Demon King’s
+                power. Natural stood up and raised her hand in front of her.
+                <br>“...Rise.”<br>
+            </p>
+
+            <div class="ad-box">
+                <script async="async" data-cfasync="false"
+                    src="//pl26314810.effectiveratecpm.com/9768483139ab06be220ee16bc7a6dfb9/invoke.js"></script>
+                <div id="container-9768483139ab06be220ee16bc7a6dfb9"></div>
+            </div>
+
+            <p>
+                With just one word the ground started to shake violently. As the ground swelled up, humanoids gradually
+                formed. Furthermore, vines from the sprouted trees came stretching out one by one and entangled to the
+                soil humanoids. The humanoids transformed, being fully covered in rocks and ore and finally growing over
+                5 meters tall.
+                These bodies that Natural had just created were known as tyrant golems amongst the humans, and were rank
+                3 monsters. Just one rank 3 monster has the power of destroying an entire city. One rank 3 adventure or
+                5 rank 4 adventurers are needed in order to defeat a single rank 3 monster. Natural created 3 of those
+                tyrant golem monsters right before her eyes.
+                <br>“Alright, this should do. If it’s truly the 6th Demon King then these won’t be enough to even slow
+                them down but I can’t just ignore it…”<br>
+                Natural tilted her head and gave out a sigh.
+                <br>“Nevertheless, the direction in which the presence disappeared is towards the city of the humans…
+                What in the world is going on…?”<br>
+                The just awoken Natural, is wary of the 6th Demon King’s revival so she accumulates her power little by
+                little in preparation.
+            </p>
+            <br><br><br><br>
+            <div class="prev-next">
+                <div class="prev-next-link">
+                    <a href="bth-1.html">← PREVIOUS</a>
+                </div>
+                <div class="prev-next-link">
+                    <a href="early-access.html">NEXT →</a>
+                </div>
+            </div>
+            <div class="toc-container">
+                <div class="toc">
+                    <a href="bth-toc.html">
+                        <h4>Table of Contents</h4>
+                    </a>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+    <div class="footer"><a href="index.html">
+            <h1>flowers translations</h1>
+        </a></div>
+    <a class="kofi-link hover" href="https://ko-fi.com/flowerstranslations" alt="Support me on Ko-fi">
+        <img alt="Bran the Hero's Life Plan"
+            src="https://github.com/flowerstranslations/images/blob/main/support_me_on_kofi.png?raw=true" width="200"
+            title="Bran the Hero's Life Plan">
+    </a>
+</body>
+
+</html>
