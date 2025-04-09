@@ -525,8 +525,9 @@ p.light-theme {
 }
 
 .ad-box {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
+    width: 900px;
+    height: 250px;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
